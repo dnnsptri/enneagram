@@ -65,7 +65,7 @@ export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) =
             <Text key={i} style={styles.listItem}>• {weakness}</Text>
           ))}
         </View>
-      </View>
+      </View>iew>
 
       <View style={styles.section}>
         <Text style={styles.subtitle}>Je Vleugel: {wingType.name}</Text>
