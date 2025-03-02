@@ -4,198 +4,198 @@ export const questions: Question[] = [
   // Type 1 - De Perfectionist
   {
     id: 1,
-    text: "Ik streef ernaar alles perfect te doen",
+    text: "Ik ben georganiseerd en houd van structuur",
     type: 1
   },
   {
     id: 2,
-    text: "Ik heb een sterk gevoel voor wat juist en onjuist is",
+    text: "Ik streef naar perfectie in alles wat ik doe",
     type: 1
   },
   {
     id: 3,
-    text: "Ik ben kritisch op mezelf en anderen",
+    text: "Ik heb een sterk ontwikkeld geweten",
     type: 1
   },
   {
     id: 4,
-    text: "Ik voel me verantwoordelijk om dingen te verbeteren",
+    text: "Ik heb duidelijke principes waar ik naar leef",
     type: 1
   },
 
   // Type 2 - De Helper
   {
     id: 5,
-    text: "Ik vind het belangrijk om anderen te helpen",
+    text: "Ik voel me verantwoordelijk voor het welzijn van anderen",
     type: 2
   },
   {
     id: 6,
-    text: "Ik stel de behoeften van anderen vaak boven die van mijzelf",
+    text: "Ik help anderen graag met hun problemen",
     type: 2
   },
   {
     id: 7,
-    text: "Ik wil graag gewaardeerd worden voor mijn zorg voor anderen",
+    text: "Ik vind het moeilijk om 'nee' te zeggen als iemand om hulp vraagt",
     type: 2
   },
   {
     id: 8,
-    text: "Ik voel me verantwoordelijk voor het geluk van anderen",
+    text: "Ik wil graag nodig zijn voor anderen",
     type: 2
   },
 
   // Type 3 - De Presteerder
   {
     id: 9,
-    text: "Ik wil graag succesvol zijn en erkenning krijgen",
+    text: "Ik ben ambitieus en wil graag succesvol zijn",
     type: 3
   },
   {
     id: 10,
-    text: "Ik ben competitief en resultaatgericht",
+    text: "Ik ben gefocust op het bereiken van mijn doelen",
     type: 3
   },
   {
     id: 11,
-    text: "Ik pas me aan om een goede indruk te maken",
+    text: "Ik vind het belangrijk wat anderen van mij vinden",
     type: 3
   },
   {
     id: 12,
-    text: "Ik ben efficiënt en doelgericht",
+    text: "Ik werk hard om de beste te zijn in wat ik doe",
     type: 3
   },
 
   // Type 4 - De Individualist
   {
     id: 13,
-    text: "Ik voel me anders dan anderen",
+    text: "Ik voel me vaak anders dan anderen",
     type: 4
   },
   {
     id: 14,
-    text: "Ik ben gevoelig en creatief",
+    text: "Ik ben op zoek naar mijn unieke identiteit",
     type: 4
   },
   {
     id: 15,
-    text: "Ik ervaar emoties intens",
+    text: "Ik ervaar emoties intenser dan de meeste mensen",
     type: 4
   },
   {
     id: 16,
-    text: "Ik zoek naar authenticiteit en diepere betekenis",
+    text: "Ik verlang naar diepgang en authenticiteit in relaties",
     type: 4
   },
 
   // Type 5 - De Waarnemer
   {
     id: 17,
-    text: "Ik heb behoefte aan tijd alleen om na te denken",
+    text: "Ik observeer liever dan dat ik direct deelneem",
     type: 5
   },
   {
     id: 18,
-    text: "Ik verzamel graag kennis en informatie",
+    text: "Ik heb behoefte aan veel tijd alleen",
     type: 5
   },
   {
     id: 19,
-    text: "Ik observeer liever dan dat ik deelneem",
+    text: "Ik analyseer situaties grondig voordat ik handel",
     type: 5
   },
   {
     id: 20,
-    text: "Ik heb moeite met emotionele eisen van anderen",
+    text: "Ik verzamel graag kennis over onderwerpen die mij interesseren",
     type: 5
   },
 
   // Type 6 - De Loyalist
   {
     id: 21,
-    text: "Ik maak me vaak zorgen over wat er mis kan gaan",
+    text: "Ik denk vaak na over wat er mis zou kunnen gaan",
     type: 6
   },
   {
     id: 22,
-    text: "Ik zoek zekerheid en veiligheid",
+    text: "Ik ben voorzichtig en let op gevaren",
     type: 6
   },
   {
     id: 23,
-    text: "Ik ben loyaal aan mensen en groepen",
+    text: "Ik heb moeite om belangrijke beslissingen te nemen",
     type: 6
   },
   {
     id: 24,
-    text: "Ik twijfel vaak aan mijn beslissingen",
+    text: "Ik zoek bevestiging en steun bij anderen",
     type: 6
   },
 
   // Type 7 - De Enthousiasteling
   {
     id: 25,
-    text: "Ik hou van nieuwe ervaringen en avontuur",
+    text: "Ik houd van nieuwe ervaringen en avontuur",
     type: 7
   },
   {
     id: 26,
-    text: "Ik vermijd liever negatieve gevoelens",
+    text: "Ik heb veel verschillende interesses en projecten",
     type: 7
   },
   {
     id: 27,
-    text: "Ik ben optimistisch en enthousiast",
+    text: "Ik focus me liever op positieve mogelijkheden dan op problemen",
     type: 7
   },
   {
     id: 28,
-    text: "Ik heb moeite met kiezen omdat ik niets wil missen",
+    text: "Ik vind het moeilijk om me te beperken tot één ding",
     type: 7
   },
 
   // Type 8 - De Uitdager
   {
     id: 29,
-    text: "Ik neem graag de leiding",
+    text: "Ik neem graag de leiding in situaties",
     type: 8
   },
   {
     id: 30,
-    text: "Ik kom op voor mezelf en anderen",
+    text: "Ik zeg direct waar het op staat",
     type: 8
   },
   {
     id: 31,
-    text: "Ik zeg direct wat ik denk",
+    text: "Ik bescherm mensen die ik belangrijk vind",
     type: 8
   },
   {
     id: 32,
-    text: "Ik hou van uitdagingen en confrontatie",
+    text: "Ik houd van uitdagingen en confrontaties",
     type: 8
   },
 
   // Type 9 - De Vredestichter
   {
     id: 33,
-    text: "Ik vermijd conflicten",
+    text: "Ik vermijd conflicten en onaangename situaties",
     type: 9
   },
   {
     id: 34,
-    text: "Ik pas me makkelijk aan anderen aan",
+    text: "Ik vind het prettig als alles rustig en harmonieus is",
     type: 9
   },
   {
     id: 35,
-    text: "Ik vind het moeilijk om prioriteiten te stellen",
+    text: "Ik pas me gemakkelijk aan anderen aan",
     type: 9
   },
   {
     id: 36,
-    text: "Ik zoek naar harmonie en vrede",
+    text: "Ik heb moeite om prioriteiten te stellen en keuzes te maken",
     type: 9
   }
 ];
@@ -204,64 +204,64 @@ export const enneagramTypes: EnneagramType[] = [
   {
     id: 1,
     name: "De Perfectionist",
-    description: "Ethisch en consciëntieus, met een sterk gevoel voor goed en fout. Streeft naar verbetering en het juiste doen.",
-    strengths: ["Verantwoordelijk", "Verbeterend", "Ethisch", "Georganiseerd"],
-    weaknesses: ["Kritisch", "Perfectionistisch", "Oordelend", "Inflexibel"]
+    description: "De rationele, idealistisch ingestelde type. Streeft naar perfectie en verbetering, gedreven door een sterk ethisch besef.",
+    strengths: ["Ethisch", "Georganiseerd", "Betrouwbaar", "Verantwoordelijk"],
+    weaknesses: ["Perfectionistisch", "Kritisch", "Inflexibel", "Zelfkritisch"]
   },
   {
     id: 2,
     name: "De Helper",
-    description: "Zorgzaam en interpersoonlijk, gericht op het helpen en ondersteunen van anderen.",
-    strengths: ["Zorgzaam", "Genereus", "Empathisch", "Verbindend"],
-    weaknesses: ["Zelfopofferend", "Indirect", "Afhankelijk van waardering"]
+    description: "De zorgzame, mensen-georiënteerde type. Voelt zich geroepen om anderen te helpen en wil graag gewaardeerd worden.",
+    strengths: ["Zorgzaam", "Empathisch", "Attent", "Behulpzaam"],
+    weaknesses: ["Zelfopofferend", "Afhankelijk van waardering", "Indirect met eigen behoeften"]
   },
   {
     id: 3,
     name: "De Presteerder",
-    description: "Succesgericht en aanpassend, streeft naar prestatie en erkenning.",
-    strengths: ["Ambitieus", "Efficiënt", "Zelfverzekerd", "Doelgericht"],
-    weaknesses: ["Imago-gericht", "Competitief", "Workaholic"]
+    description: "De succesvolle, pragmatische type. Gemotiveerd door prestaties en het maken van een goede indruk.",
+    strengths: ["Efficiënt", "Ambitieus", "Aanpassingsvermogen", "Resultaatgericht"],
+    weaknesses: ["Imago-bewust", "Workaholic", "Competitief"]
   },
   {
     id: 4,
     name: "De Individualist",
-    description: "Gevoelig en expressief, op zoek naar authenticiteit en betekenis.",
-    strengths: ["Creatief", "Intuïtief", "Authentiek", "Diepgaand"],
-    weaknesses: ["Melancholisch", "Dramatisch", "Zelfgericht"]
+    description: "De gevoelige, introspectieve type. Zoekt naar authenticiteit en diepere betekenis in het leven.",
+    strengths: ["Creatief", "Authentiek", "Empathisch", "Zelfinzicht"],
+    weaknesses: ["Stemmingswisselingen", "Zelfgerichtheid", "Melancholisch"]
   },
   {
     id: 5,
     name: "De Waarnemer",
-    description: "Intens en cerebraal, gericht op kennis en begrip.",
-    strengths: ["Analytisch", "Objectief", "Onderzoekend", "Intelligent"],
-    weaknesses: ["Teruggetrokken", "Afstandelijk", "Gereserveerd"]
+    description: "De objectieve, onderzoekende type. Verzamelt kennis en observeert de wereld vanuit een afstand.",
+    strengths: ["Analytisch", "Onafhankelijk", "Innovatief", "Observerend"],
+    weaknesses: ["Afstandelijk", "Teruggetrokken", "Intellectualiserend"]
   },
   {
     id: 6,
     name: "De Loyalist",
-    description: "Toegewijd en waakzaam, zoekt veiligheid en zekerheid.",
-    strengths: ["Loyaal", "Voorbereid", "Verantwoordelijk", "Voorzichtig"],
-    weaknesses: ["Angstig", "Twijfelend", "Wantrouwend"]
+    description: "De toegewijde, veiligheid-zoekende type. Anticiperend op problemen en zoekend naar zekerheid.",
+    strengths: ["Loyaal", "Verantwoordelijk", "Voorbereid", "Samenwerkend"],
+    weaknesses: ["Angstig", "Besluiteloos", "Wantrouwend"]
   },
   {
     id: 7,
     name: "De Enthousiasteling",
-    description: "Spontaan en veelzijdig, zoekt positieve ervaringen en mogelijkheden.",
-    strengths: ["Optimistisch", "Avontuurlijk", "Veelzijdig", "Energiek"],
-    weaknesses: ["Oppervlakkig", "Ongeduldig", "Onrustig"]
+    description: "De optimistische, avontuurlijke type. Op zoek naar positieve ervaringen en nieuwe mogelijkheden.",
+    strengths: ["Enthousiast", "Veelzijdig", "Spontaan", "Creatief"],
+    weaknesses: ["Ongeconcentreerd", "Impulsief", "Vermijdend"]
   },
   {
     id: 8,
     name: "De Uitdager",
-    description: "Krachtig en dominant, gericht op controle en rechtvaardigheid.",
-    strengths: ["Sterk", "Beschermend", "Besluitvaardig", "Direct"],
-    weaknesses: ["Controlerend", "Confronterend", "Intimiderend"]
+    description: "De krachtige, dominante type. Neemt graag controle en komt op voor zichzelf en anderen.",
+    strengths: ["Zelfverzekerd", "Beschermend", "Direct", "Daadkrachtig"],
+    weaknesses: ["Confronterend", "Dominant", "Controlerend"]
   },
   {
     id: 9,
     name: "De Vredestichter",
-    description: "Accepterend en harmonieus, streeft naar vrede en eenheid.",
-    strengths: ["Diplomatiek", "Kalmerend", "Geduldig", "Begripvol"],
-    weaknesses: ["Passief", "Besluiteloos", "Conflictvermijdend"]
+    description: "De rustige, harmonie-zoekende type. Streeft naar innerlijke en uiterlijke vrede.",
+    strengths: ["Bemiddelend", "Geduldig", "Begripvol", "Kalmerend"],
+    weaknesses: ["Conflictvermijdend", "Besluiteloos", "Passief"]
   }
 ];
