@@ -1,4 +1,7 @@
 import { type Result, type InsertResult } from "@shared/schema";
+import { results } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 import { questions, enneagramTypes } from "./data/questions";
 import { type Question, type EnneagramType } from "./data/types";
 
@@ -9,15 +12,7 @@ export interface IStorage {
   getResult(id: number): Promise<Result | undefined>;
 }
 
-export class MemStorage implements IStorage {
-  private results: Map<number, Result>;
-  private currentId: number;
-
-  constructor() {
-    this.results = new Map();
-    this.currentId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getQuestions(): Promise<Question[]> {
     return questions;
   }
@@ -27,15 +22,20 @@ export class MemStorage implements IStorage {
   }
 
   async saveResult(insertResult: InsertResult): Promise<Result> {
-    const id = this.currentId++;
-    const result = { ...insertResult, id };
-    this.results.set(id, result);
+    const [result] = await db
+      .insert(results)
+      .values(insertResult)
+      .returning();
     return result;
   }
 
   async getResult(id: number): Promise<Result | undefined> {
-    return this.results.get(id);
+    const [result] = await db
+      .select()
+      .from(results)
+      .where(eq(results.id, id));
+    return result;
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
