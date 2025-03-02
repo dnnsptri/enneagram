@@ -203,63 +203,63 @@ export const questions: Question[] = [
 export const enneagramTypes: EnneagramType[] = [
   {
     id: 1,
-    name: "De Perfectionist",
+    name: "Type 1 - De Perfectionist",
     description: "De rationele, idealistisch ingestelde type. Streeft naar perfectie en verbetering, gedreven door een sterk ethisch besef.",
     strengths: ["Ethisch", "Georganiseerd", "Betrouwbaar", "Verantwoordelijk"],
     weaknesses: ["Perfectionistisch", "Kritisch", "Inflexibel", "Zelfkritisch"]
   },
   {
     id: 2,
-    name: "De Helper",
+    name: "Type 2 - De Helper",
     description: "De zorgzame, mensen-georiënteerde type. Voelt zich geroepen om anderen te helpen en wil graag gewaardeerd worden.",
     strengths: ["Zorgzaam", "Empathisch", "Attent", "Behulpzaam"],
     weaknesses: ["Zelfopofferend", "Afhankelijk van waardering", "Indirect met eigen behoeften"]
   },
   {
     id: 3,
-    name: "De Presteerder",
+    name: "Type 3 - De Presteerder",
     description: "De succesvolle, pragmatische type. Gemotiveerd door prestaties en het maken van een goede indruk.",
     strengths: ["Efficiënt", "Ambitieus", "Aanpassingsvermogen", "Resultaatgericht"],
     weaknesses: ["Imago-bewust", "Workaholic", "Competitief"]
   },
   {
     id: 4,
-    name: "De Individualist",
+    name: "Type 4 - De Individualist",
     description: "De gevoelige, introspectieve type. Zoekt naar authenticiteit en diepere betekenis in het leven.",
     strengths: ["Creatief", "Authentiek", "Empathisch", "Zelfinzicht"],
     weaknesses: ["Stemmingswisselingen", "Zelfgerichtheid", "Melancholisch"]
   },
   {
     id: 5,
-    name: "De Waarnemer",
+    name: "Type 5 - De Waarnemer",
     description: "De objectieve, onderzoekende type. Verzamelt kennis en observeert de wereld vanuit een afstand.",
     strengths: ["Analytisch", "Onafhankelijk", "Innovatief", "Observerend"],
     weaknesses: ["Afstandelijk", "Teruggetrokken", "Intellectualiserend"]
   },
   {
     id: 6,
-    name: "De Loyalist",
+    name: "Type 6 - De Loyalist",
     description: "De toegewijde, veiligheid-zoekende type. Anticiperend op problemen en zoekend naar zekerheid.",
     strengths: ["Loyaal", "Verantwoordelijk", "Voorbereid", "Samenwerkend"],
     weaknesses: ["Angstig", "Besluiteloos", "Wantrouwend"]
   },
   {
     id: 7,
-    name: "De Enthousiasteling",
+    name: "Type 7 - De Enthousiasteling",
     description: "De optimistische, avontuurlijke type. Op zoek naar positieve ervaringen en nieuwe mogelijkheden.",
     strengths: ["Enthousiast", "Veelzijdig", "Spontaan", "Creatief"],
     weaknesses: ["Ongeconcentreerd", "Impulsief", "Vermijdend"]
   },
   {
     id: 8,
-    name: "De Uitdager",
+    name: "Type 8 - De Uitdager",
     description: "De krachtige, dominante type. Neemt graag controle en komt op voor zichzelf en anderen.",
     strengths: ["Zelfverzekerd", "Beschermend", "Direct", "Daadkrachtig"],
     weaknesses: ["Confronterend", "Dominant", "Controlerend"]
   },
   {
     id: 9,
-    name: "De Vredestichter",
+    name: "Type 9 - De Vredestichter",
     description: "De rustige, harmonie-zoekende type. Streeft naar innerlijke en uiterlijke vrede.",
     strengths: ["Bemiddelend", "Geduldig", "Begripvol", "Kalmerend"],
     weaknesses: ["Conflictvermijdend", "Besluiteloos", "Passief"]
