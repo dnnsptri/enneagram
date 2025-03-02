@@ -67,6 +67,11 @@ export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) =
       </View>
 
       <View style={styles.section}>
+        <Text style={styles.subtitle}>Vleugel: {wingType.name}</Text>
+        <Text style={styles.text}>Datum: {new Date(result.timestamp).toLocaleDateString('nl-NL')}</Text>
+      </View>iew>
+
+      <View style={styles.section}>
         <Text style={styles.subtitle}>Je Vleugel: {wingType.name}</Text>
         <Text style={styles.text}>{wingType.description}</Text>
       </View>
