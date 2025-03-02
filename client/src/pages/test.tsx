@@ -64,7 +64,7 @@ export default function Test() {
       setCurrentQuestion(currentQuestion + 1);
       form.reset();
     } else {
-      mutation.mutate(calculateScores(newAnswers));
+      mutation.mutate(calculateScores(newAnswers, questions));
     }
   };
 
@@ -156,14 +156,14 @@ export default function Test() {
   );
 }
 
-function calculateScores(answers: number[]): number[] {
+function calculateScores(answers: number[], questions: Question[]): number[] {
   // Initialize arrays to store scores and counts for each type (1-9)
   const typeScores = new Array(9).fill(0);
   const typeCounts = new Array(9).fill(0);
 
   // Process each answer
   answers.forEach((answer, index) => {
-    if (answer) { // Only count valid answers
+    if (answer && questions[index]) { // Check both answer and question exist
       const type = questions[index].type;
       typeScores[type - 1] += answer;
       typeCounts[type - 1]++;
