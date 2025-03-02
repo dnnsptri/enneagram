@@ -56,7 +56,7 @@ export default function Results() {
             </h2>
             <p className="mb-6">{primaryType.description}</p>
 
-            <Accordion type="single" collapsible>
+            <Accordion type="multiple" className="w-full">
               <AccordionItem value="strengths">
                 <AccordionTrigger>Sterke punten</AccordionTrigger>
                 <AccordionContent>
