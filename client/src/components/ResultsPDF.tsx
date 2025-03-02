@@ -1,141 +1,99 @@
+import React from 'react';
+import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 
-import React from "react";
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import { Results } from "@/shared/types";
-
+// Define styles
 const styles = StyleSheet.create({
   page: {
-    flexDirection: "column",
-    backgroundColor: "#ffffff",
+    flexDirection: 'column',
+    backgroundColor: '#ffffff',
     padding: 30,
   },
   section: {
-    marginBottom: 10,
+    margin: 10,
+    padding: 10,
   },
   title: {
     fontSize: 24,
+    textAlign: 'center',
     marginBottom: 20,
-    fontWeight: "bold",
-    textAlign: "center",
   },
-  subtitle: {
+  heading: {
     fontSize: 18,
     marginBottom: 10,
-    fontWeight: "bold",
   },
-  date: {
-    fontSize: 12,
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  table: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderColor: "#000",
-    marginBottom: 10,
-  },
-  tableRow: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "#000",
-    borderBottomStyle: "solid",
-    minHeight: 25,
-    alignItems: "center",
-  },
-  tableCol: {
-    width: "50%",
-    padding: 5,
-  },
-  tableHeader: {
-    backgroundColor: "#f0f0f0",
-    fontWeight: "bold",
+  subheading: {
+    fontSize: 14,
+    marginBottom: 5,
   },
   text: {
     fontSize: 12,
+    marginBottom: 5,
   },
-  footer: {
-    position: "absolute",
-    bottom: 30,
-    left: 30,
-    right: 30,
-    textAlign: "center",
+  tableRow: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#000',
+    borderBottomStyle: 'solid',
+    padding: 5,
+  },
+  tableCol: {
+    width: '50%',
+  },
+  tableCell: {
     fontSize: 10,
-    color: "grey",
   },
 });
 
-interface ResultsPDFProps {
-  data: Results;
-}
+// Create Document Component
+export const ResultsPDF = ({ data }) => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.section}>
+        <Text style={styles.title}>Enneagram Test Resultaten</Text>
 
-const ResultsPDF: React.FC<ResultsPDFProps> = ({ data }) => {
-  const currentDate = new Date().toLocaleDateString();
+        <Text style={styles.heading}>Primair Type: {data.primaryType.name}</Text>
+        <Text style={styles.text}>{data.primaryType.description}</Text>
 
-  return (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text style={styles.title}>Analysis Results</Text>
-          <Text style={styles.date}>Generated on: {currentDate}</Text>
+        <Text style={styles.heading}>Vleugel: {data.wingType.name}</Text>
+        <Text style={styles.text}>{data.wingType.description}</Text>
+
+        <Text style={styles.heading}>Scores:</Text>
+        {data.scores.map((score, index) => (
+          <Text key={index} style={styles.text}>
+            Type {index + 1}: {score.toFixed(2)}
+          </Text>
+        ))}
+
+        <Text style={styles.heading}>Sterktes:</Text>
+        <View>
+          {data.primaryType.strengths.map((strength, index) => (
+            <Text key={index} style={styles.text}>• {strength}</Text>
+          ))}
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.subtitle}>Overview</Text>
-          <View style={styles.table}>
-            <View style={[styles.tableRow, styles.tableHeader]}>
-              <View style={styles.tableCol}>
-                <Text style={styles.text}>Metric</Text>
-              </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.text}>Value</Text>
-              </View>
-            </View>
+        <Text style={styles.heading}>Zwaktes:</Text>
+        <View>
+          {data.primaryType.weaknesses.map((weakness, index) => (
+            <Text key={index} style={styles.text}>• {weakness}</Text>
+          ))}
+        </View>
+
+        {data.overview && Object.keys(data.overview).length > 0 && (
+          <>
+            <Text style={styles.heading}>Overzicht:</Text>
             {Object.entries(data.overview || {}).map(([key, value]) => (
               <View style={styles.tableRow} key={key}>
                 <View style={styles.tableCol}>
-                  <Text style={styles.text}>{key}</Text>
+                  <Text style={styles.tableCell}>{key}</Text>
                 </View>
                 <View style={styles.tableCol}>
-                  <Text style={styles.text}>{value}</Text>
+                  <Text style={styles.tableCell}>{value}</Text>
                 </View>
               </View>
             ))}
-          </View>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.subtitle}>Details</Text>
-          <View style={styles.table}>
-            <View style={[styles.tableRow, styles.tableHeader]}>
-              <View style={styles.tableCol}>
-                <Text style={styles.text}>Category</Text>
-              </View>
-              <View style={styles.tableCol}>
-                <Text style={styles.text}>Results</Text>
-              </View>
-            </View>
-            {Object.entries(data.details || {}).map(([key, value]) => (
-              <View style={styles.tableRow} key={key}>
-                <View style={styles.tableCol}>
-                  <Text style={styles.text}>{key}</Text>
-                </View>
-                <View style={styles.tableCol}>
-                  <Text style={styles.text}>{typeof value === 'object' ? JSON.stringify(value) : value}</Text>
-                </View>
-              </View>
-            ))}
-          </View>
-        </View>
-
-        <View style={styles.footer}>
-          <Text>This report is automatically generated and confidential.</Text>
-        </View>
-      </Page>
-    </Document>
-  );
-};
-
-export { ResultsPDF };
+          </>
+        )}
+      </View>
+    </Page>
+  </Document>
+);
