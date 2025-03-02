@@ -93,12 +93,21 @@ export default function Test() {
                             onValueChange={(value) => field.onChange(parseInt(value))}
                             value={field.value?.toString()}
                             className="space-y-2"
+                            onKeyDown={(e) => {
+                              if (e.key >= '1' && e.key <= '3') {
+                                field.onChange(parseInt(e.key));
+                                // Auto submit after a slight delay if an answer was selected via keyboard
+                                if (currentQuestion < questions.length - 1) {
+                                  setTimeout(() => form.handleSubmit(onSubmit)(), 300);
+                                }
+                              }
+                            }}
                           >
                             <FormItem>
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="1" id="r1" />
-                                  <FormLabel htmlFor="r1">Nee</FormLabel>
+                                  <FormLabel htmlFor="r1"><strong>1.</strong> Nee</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -106,7 +115,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="2" id="r2" />
-                                  <FormLabel htmlFor="r2">Deels</FormLabel>
+                                  <FormLabel htmlFor="r2"><strong>2.</strong> Deels</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -114,7 +123,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="3" id="r3" />
-                                  <FormLabel htmlFor="r3">Ja</FormLabel>
+                                  <FormLabel htmlFor="r3"><strong>3.</strong> Ja</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
