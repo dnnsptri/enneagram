@@ -22,19 +22,29 @@ export class DatabaseStorage implements IStorage {
   }
 
   async saveResult(insertResult: InsertResult): Promise<Result> {
-    const [result] = await db
-      .insert(results)
-      .values(insertResult)
-      .returning();
-    return result;
+    try {
+      const [result] = await db
+        .insert(results)
+        .values([insertResult]) // Wrap in array to fix type error
+        .returning();
+      return result;
+    } catch (error) {
+      console.error('Error saving result:', error);
+      throw new Error('Failed to save test result');
+    }
   }
 
   async getResult(id: number): Promise<Result | undefined> {
-    const [result] = await db
-      .select()
-      .from(results)
-      .where(eq(results.id, id));
-    return result;
+    try {
+      const [result] = await db
+        .select()
+        .from(results)
+        .where(eq(results.id, id));
+      return result;
+    } catch (error) {
+      console.error('Error fetching result:', error);
+      return undefined;
+    }
   }
 }
 
