@@ -1,89 +1,141 @@
 
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
-import type { Result } from "@shared/schema";
-import type { EnneagramType } from "@shared/types";
+import React from "react";
+import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Results } from "@/shared/types";
 
 const styles = StyleSheet.create({
   page: {
-    flexDirection: 'column',
-    backgroundColor: '#FFFFFF',
+    flexDirection: "column",
+    backgroundColor: "#ffffff",
     padding: 30,
+  },
+  section: {
+    marginBottom: 10,
   },
   title: {
     fontSize: 24,
     marginBottom: 20,
+    fontWeight: "bold",
+    textAlign: "center",
   },
   subtitle: {
     fontSize: 18,
-    marginBottom: 15,
+    marginBottom: 10,
+    fontWeight: "bold",
+  },
+  date: {
+    fontSize: 12,
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  table: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#000",
+    marginBottom: 10,
+  },
+  tableRow: {
+    flexDirection: "row",
+    borderBottomWidth: 1,
+    borderBottomColor: "#000",
+    borderBottomStyle: "solid",
+    minHeight: 25,
+    alignItems: "center",
+  },
+  tableCol: {
+    width: "50%",
+    padding: 5,
+  },
+  tableHeader: {
+    backgroundColor: "#f0f0f0",
+    fontWeight: "bold",
   },
   text: {
     fontSize: 12,
-    marginBottom: 10,
   },
-  section: {
-    marginBottom: 20,
-  },
-  list: {
-    marginLeft: 20,
-  },
-  listItem: {
-    fontSize: 12,
-    marginBottom: 5,
+  footer: {
+    position: "absolute",
+    bottom: 30,
+    left: 30,
+    right: 30,
+    textAlign: "center",
+    fontSize: 10,
+    color: "grey",
   },
 });
 
 interface ResultsPDFProps {
-  result: Result;
-  primaryType: EnneagramType;
-  wingType: EnneagramType;
+  data: Results;
 }
 
-export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <Text style={styles.title}>Enneagram Test Resultaat</Text>
+const ResultsPDF: React.FC<ResultsPDFProps> = ({ data }) => {
+  const currentDate = new Date().toLocaleDateString();
 
-      <View style={styles.section}>
-        <Text style={styles.subtitle}>{primaryType.name}</Text>
-        <Text style={styles.text}>{primaryType.description}</Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={styles.subtitle}>Sterke punten</Text>
-        <View style={styles.list}>
-          {primaryType.strengths.map((strength, i) => (
-            <Text key={i} style={styles.listItem}>• {strength}</Text>
-          ))}
+  return (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.section}>
+          <Text style={styles.title}>Analysis Results</Text>
+          <Text style={styles.date}>Generated on: {currentDate}</Text>
         </View>
-      </View>
 
-      <View style={styles.section}>
-        <Text style={styles.subtitle}>Uitdagingen</Text>
-        <View style={styles.list}>
-          {primaryType.weaknesses.map((weakness, i) => (
-            <Text key={i} style={styles.listItem}>• {weakness}</Text>
-          ))}
+        <View style={styles.section}>
+          <Text style={styles.subtitle}>Overview</Text>
+          <View style={styles.table}>
+            <View style={[styles.tableRow, styles.tableHeader]}>
+              <View style={styles.tableCol}>
+                <Text style={styles.text}>Metric</Text>
+              </View>
+              <View style={styles.tableCol}>
+                <Text style={styles.text}>Value</Text>
+              </View>
+            </View>
+            {Object.entries(data.overview || {}).map(([key, value]) => (
+              <View style={styles.tableRow} key={key}>
+                <View style={styles.tableCol}>
+                  <Text style={styles.text}>{key}</Text>
+                </View>
+                <View style={styles.tableCol}>
+                  <Text style={styles.text}>{value}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
         </View>
-      </View>iew>
 
-      <View style={styles.section}>
-        <Text style={styles.subtitle}>Je Vleugel: {wingType.name}</Text>
-        <Text style={styles.text}>{wingType.description}</Text>
-      </View>
-      
-      <View style={styles.section}>
-        <Text style={styles.subtitle}>Wat betekent een vleugel?</Text>
-        <Text style={styles.text}>
-          Je vleugel is een aangrenzend type dat je primaire type beïnvloedt. Het voegt extra nuances toe aan je persoonlijkheid. 
-          Type {primaryType.id} met een vleugel {wingType.id} betekent dat je voornamelijk de kenmerken van Type {primaryType.id} vertoont, 
-          maar dat deze worden genuanceerd door invloeden van Type {wingType.id}.
-        </Text>
-      </View>
+        <View style={styles.section}>
+          <Text style={styles.subtitle}>Details</Text>
+          <View style={styles.table}>
+            <View style={[styles.tableRow, styles.tableHeader]}>
+              <View style={styles.tableCol}>
+                <Text style={styles.text}>Category</Text>
+              </View>
+              <View style={styles.tableCol}>
+                <Text style={styles.text}>Results</Text>
+              </View>
+            </View>
+            {Object.entries(data.details || {}).map(([key, value]) => (
+              <View style={styles.tableRow} key={key}>
+                <View style={styles.tableCol}>
+                  <Text style={styles.text}>{key}</Text>
+                </View>
+                <View style={styles.tableCol}>
+                  <Text style={styles.text}>{typeof value === 'object' ? JSON.stringify(value) : value}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
 
-      <View style={styles.section}>
-        <Text style={styles.text}>Datum: {new Date(result.timestamp).toLocaleDateString('nl-NL')}</Text>
-      </View>
-    </Page>
-  </Document>
-);
+        <View style={styles.footer}>
+          <Text>This report is automatically generated and confidential.</Text>
+        </View>
+      </Page>
+    </Document>
+  );
+};
+
+export default ResultsPDF;
