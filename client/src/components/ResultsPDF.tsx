@@ -42,7 +42,7 @@ export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) =
   <Document>
     <Page size="A4" style={styles.page}>
       <Text style={styles.title}>Enneagram Test Resultaat</Text>
-      
+
       <View style={styles.section}>
         <Text style={styles.subtitle}>{primaryType.name}</Text>
         <Text style={styles.text}>{primaryType.description}</Text>
@@ -84,5 +84,5 @@ export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) =
         <Text style={styles.text}>Datum: {new Date(result.timestamp).toLocaleDateString('nl-NL')}</Text>
       </View>
     </Page>
-  </Document>>
+  </Document>
 );
