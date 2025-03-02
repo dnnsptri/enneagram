@@ -157,27 +157,40 @@ export default function Test() {
 }
 
 function calculateScores(answers: number[]): number[] {
-  // Group answers by type and calculate average scores
+  // Initialize arrays to store scores and counts for each type (1-9)
   const typeScores = new Array(9).fill(0);
   const typeCounts = new Array(9).fill(0);
 
+  // Process each answer
   answers.forEach((answer, index) => {
-    const questionType = (index % 9) + 1;
-    typeScores[questionType - 1] += answer;
-    typeCounts[questionType - 1]++;
+    if (answer) { // Only count valid answers
+      const type = questions[index].type;
+      typeScores[type - 1] += answer;
+      typeCounts[type - 1]++;
+    }
   });
 
-  return typeScores.map((score, index) => score / typeCounts[index]);
+  // Calculate average scores, handling division by zero
+  return typeScores.map((score, index) => 
+    typeCounts[index] > 0 ? score / typeCounts[index] : 0
+  );
 }
 
 function calculatePrimaryType(scores: number[]): number {
-  return scores.indexOf(Math.max(...scores)) + 1;
+  const maxScore = Math.max(...scores);
+  // If all scores are 0, default to type 1
+  if (maxScore === 0) return 1;
+  return scores.indexOf(maxScore) + 1;
 }
 
 function calculateWingType(scores: number[]): number {
   const primaryIndex = scores.indexOf(Math.max(...scores));
+
+  // Handle edge cases
+  if (primaryIndex === -1) return 1;
+
   const leftWing = primaryIndex === 0 ? 8 : primaryIndex - 1;
   const rightWing = primaryIndex === 8 ? 0 : primaryIndex + 1;
 
-  return scores[leftWing] > scores[rightWing] ? leftWing + 1 : rightWing + 1;
+  return scores[leftWing] >= scores[rightWing] ? leftWing + 1 : rightWing + 1;
 }
