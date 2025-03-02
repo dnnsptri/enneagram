@@ -70,10 +70,19 @@ export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) =
         <Text style={styles.subtitle}>Je Vleugel: {wingType.name}</Text>
         <Text style={styles.text}>{wingType.description}</Text>
       </View>
+      
+      <View style={styles.section}>
+        <Text style={styles.subtitle}>Wat betekent een vleugel?</Text>
+        <Text style={styles.text}>
+          Je vleugel is een aangrenzend type dat je primaire type beïnvloedt. Het voegt extra nuances toe aan je persoonlijkheid. 
+          Type {primaryType.id} met een vleugel {wingType.id} betekent dat je voornamelijk de kenmerken van Type {primaryType.id} vertoont, 
+          maar dat deze worden genuanceerd door invloeden van Type {wingType.id}.
+        </Text>
+      </View>
 
       <View style={styles.section}>
         <Text style={styles.text}>Datum: {new Date(result.timestamp).toLocaleDateString('nl-NL')}</Text>
       </View>
     </Page>
-  </Document>
+  </Document>>
 );

@@ -204,64 +204,64 @@ export const enneagramTypes: EnneagramType[] = [
   {
     id: 1,
     name: "Type 1 - De Perfectionist",
-    description: "De rationele, idealistisch ingestelde type. Streeft naar perfectie en verbetering, gedreven door een sterk ethisch besef.",
-    strengths: ["Ethisch", "Georganiseerd", "Betrouwbaar", "Verantwoordelijk"],
-    weaknesses: ["Perfectionistisch", "Kritisch", "Inflexibel", "Zelfkritisch"]
+    description: "Type Eén is consciëntieus en ethisch, met een sterk gevoel voor goed en fout. Ze zijn leraren, verbeteraars en idealisten die altijd dingen beter willen maken, alles volgens een hoge standaard van hun overtuigingen. Ze zijn principieel, doelgericht, en willen leven met een gevoel van missie, en zijn bang om fouten te maken. Ze worstelen vaak met ongeduld en boosheid. In hun beste vorm zijn ze wijs, onderscheidend, realistisch en nobele idealisten die de wereld beter kunnen maken.",
+    strengths: ["Ethisch", "Georganiseerd", "Betrouwbaar", "Verantwoordelijk", "Verbeterend", "Rationeel"],
+    weaknesses: ["Perfectionistisch", "Kritisch", "Inflexibel", "Zelfkritisch", "Ongeduldig", "Moraliserend"]
   },
   {
     id: 2,
     name: "Type 2 - De Helper",
-    description: "De zorgzame, mensen-georiënteerde type. Voelt zich geroepen om anderen te helpen en wil graag gewaardeerd worden.",
-    strengths: ["Zorgzaam", "Empathisch", "Attent", "Behulpzaam"],
-    weaknesses: ["Zelfopofferend", "Afhankelijk van waardering", "Indirect met eigen behoeften"]
+    description: "Type Twee is zorgzaam en ondersteunend, empathisch en oprecht bezorgd om anderen. Ze zijn vriendelijk, grootmoedig en zelfopofferend, maar kunnen ook sentimenteel, vleiend en opdringerig worden. Ze zijn gedreven door de behoefte om geliefd te zijn en nodig te zijn. In hun best vorm geven Tweeën onvoorwaardelijke liefde aan zichzelf en anderen. Ze zijn meelevend, attent en hebben een warm hart.",
+    strengths: ["Zorgzaam", "Empathisch", "Attent", "Behulpzaam", "Warm", "Genereus"],
+    weaknesses: ["Zelfopofferend", "Afhankelijk van waardering", "Indirect met eigen behoeften", "Manipulatief", "Opdringerig"]
   },
   {
     id: 3,
     name: "Type 3 - De Presteerder",
-    description: "De succesvolle, pragmatische type. Gemotiveerd door prestaties en het maken van een goede indruk.",
-    strengths: ["Efficiënt", "Ambitieus", "Aanpassingsvermogen", "Resultaatgericht"],
-    weaknesses: ["Imago-bewust", "Workaholic", "Competitief"]
+    description: "Type Drie is ambitieus, aanpassingsvermogen en imago-bewust. Ze zijn charmante, energieke mensen die gedreven worden door de behoefte aan erkenning en succes. Ze zijn diplomatiek en bekwaam, maar kunnen ook te veel focussen op taken en presteren, soms ten koste van hun persoonlijke relaties. Ze zijn erg effectief maar kunnen hun identiteit verliezen in hun verlangen naar erkenning. In hun beste vorm zijn ze authentiek, zelfaccepterend en een voorbeeld voor anderen.",
+    strengths: ["Efficiënt", "Ambitieus", "Aanpassingsvermogen", "Resultaatgericht", "Energiek", "Doelgericht"],
+    weaknesses: ["Imago-bewust", "Workaholic", "Competitief", "Obsessief over succes", "Vermijden van kwetsbaarheid"]
   },
   {
     id: 4,
     name: "Type 4 - De Individualist",
-    description: "De gevoelige, introspectieve type. Zoekt naar authenticiteit en diepere betekenis in het leven.",
-    strengths: ["Creatief", "Authentiek", "Empathisch", "Zelfinzicht"],
-    weaknesses: ["Stemmingswisselingen", "Zelfgerichtheid", "Melancholisch"]
+    description: "Type Vier is gevoelig, introvert en expressief, vaak creatief en persoonlijk. Ze zijn emotioneel eerlijk, authentiek en gereserveerd, op zoek naar uniekheid en diepgang in hun relaties. Ze bezitten een diep bewustzijn van persoonlijke emoties. Ze kunnen echter ook chaotisch en humeurig zijn, en zich soms afgescheiden voelen van anderen. In hun beste vorm zijn ze geïnspireerd en creatief, in staat om hun persoonlijke ervaringen om te zetten in iets waardevols voor anderen.",
+    strengths: ["Creatief", "Authentiek", "Empathisch", "Zelfinzicht", "Expressief", "Diepgang"],
+    weaknesses: ["Stemmingswisselingen", "Zelfgerichtheid", "Melancholisch", "Gevoel van ontoereikendheid", "Afgunst"]
   },
   {
     id: 5,
     name: "Type 5 - De Waarnemer",
-    description: "De objectieve, onderzoekende type. Verzamelt kennis en observeert de wereld vanuit een afstand.",
-    strengths: ["Analytisch", "Onafhankelijk", "Innovatief", "Observerend"],
-    weaknesses: ["Afstandelijk", "Teruggetrokken", "Intellectualiserend"]
+    description: "Type Vijf is alert, scherpzinnig en nieuwsgierig. Ze zijn in staat om zich te concentreren en zich te verdiepen in het ontwikkelen van complexe ideeën en vaardigheden. Ze zijn onafhankelijk, innovatief en vindingrijk, vaak intens bezig met hun gedachten en intellectuele interesses. Ze streven naar kennis en begrip en kunnen soms afstandelijk en gedetacheerd worden, zich terugtrekken in hun gedachten. In hun beste vorm zijn ze visionair, objectief en wijs.",
+    strengths: ["Analytisch", "Objectief", "Perceptief", "Intellectueel", "Onafhankelijk", "Vooruitdenkend"],
+    weaknesses: ["Gedetacheerd", "Afstandelijk", "Geïsoleerd", "Verwaarlozend van fysieke behoeften", "Gevoelsmatig afgestompt"]
   },
   {
     id: 6,
     name: "Type 6 - De Loyalist",
-    description: "De toegewijde, veiligheid-zoekende type. Anticiperend op problemen en zoekend naar zekerheid.",
-    strengths: ["Loyaal", "Verantwoordelijk", "Voorbereid", "Samenwerkend"],
-    weaknesses: ["Angstig", "Besluiteloos", "Wantrouwend"]
+    description: "Type Zes is verantwoordelijk, betrouwbaar en hardwerkend. Ze zijn trouw, van nature angstig en wantrouwend, maar ook toegewijd, beschermend en ondersteunend. Ze hebben een sterk gevoel van loyaliteit en verdedigen hun geliefden, maar kunnen ook defensief, angstig en soms paranoïde zijn. In hun beste vorm zijn ze moedig, coöperatief en creatief probleemoplossers, in staat om vertrouwen op te bouwen ondanks hun angsten.",
+    strengths: ["Loyaal", "Verantwoordelijk", "Probleemoplossend", "Voorzichtig", "Betrouwbaar", "Werkethiek"],
+    weaknesses: ["Angstig", "Wantrouwig", "Besluiteloos", "Defensive", "Controlerend", "Zwart-wit denken"]
   },
   {
     id: 7,
     name: "Type 7 - De Enthousiasteling",
-    description: "De optimistische, avontuurlijke type. Op zoek naar positieve ervaringen en nieuwe mogelijkheden.",
-    strengths: ["Enthousiast", "Veelzijdig", "Spontaan", "Creatief"],
-    weaknesses: ["Ongeconcentreerd", "Impulsief", "Vermijdend"]
+    description: "Type Zeven is veelzijdig, optimistisch en spontaan. Ze zijn levendig, veelzijdig en bezield, op zoek naar positieve ervaringen. Ze houden van plezier en nieuwe uitdagingen. Ze benaderen het leven met enthousiasme en kunnen veel activiteiten en plannen tegelijk uitvoeren. Aan de andere kant kunnen ze impulsief, ongedisciplineerd en rusteloze worden. In hun beste vorm kanaliseren ze hun energie in waardevolle activiteiten en brengen ze vreugde aan anderen.",
+    strengths: ["Optimistisch", "Enthousiast", "Veelzijdig", "Spontaan", "Vindingrijk", "Avontuurlijk"],
+    weaknesses: ["Impulsief", "Ongeconcentreerd", "Escapistisch", "Oppervlakkig", "Vermijden van pijn", "Verspreid in aandacht"]
   },
   {
     id: 8,
     name: "Type 8 - De Uitdager",
-    description: "De krachtige, dominante type. Neemt graag controle en komt op voor zichzelf en anderen.",
-    strengths: ["Zelfverzekerd", "Beschermend", "Direct", "Daadkrachtig"],
-    weaknesses: ["Confronterend", "Dominant", "Controlerend"]
+    description: "Type Acht is zelfverzekerd, sterk en assertief. Ze zijn beschermend, doortastend en besluitvaardig, belast met de behoefte om impact te hebben op de wereld om hen heen. Ze hebben een sterke intuïtie en reageren instinctief op situaties. Ze beschermen graag de kwetsbaren, maar kunnen ook dominant, intimiderend en confronterend zijn. In hun beste vorm gebruiken ze hun kracht om anderen te verdedigen en te verheffen.",
+    strengths: ["Zelfverzekerd", "Besluitvaardig", "Beschermend", "Sterk", "Assertief", "Rechtvaardig"],
+    weaknesses: ["Dominant", "Controlerend", "Confronterend", "Intimiderend", "Ongeduldig", "Wantrouwend"]
   },
   {
     id: 9,
     name: "Type 9 - De Vredestichter",
-    description: "De rustige, harmonie-zoekende type. Streeft naar innerlijke en uiterlijke vrede.",
-    strengths: ["Bemiddelend", "Geduldig", "Begripvol", "Kalmerend"],
-    weaknesses: ["Conflictvermijdend", "Besluiteloos", "Passief"]
+    description: "Type Negen is accepterend, vertrouwend en stabiel. Ze zijn rustig, ontspannen en ondersteunend, met een sterk vermogen om conflicten te bemiddelen en verschillende perspectieven te zien. Ze zoeken naar harmonie en vrede in hun omgeving. Aan de andere kant kunnen ze ook passief en afgeleid raken, en hun eigen prioriteiten negeren. In hun beste vorm zijn ze geaard, in vrede met zichzelf en in staat om echte verbinding met zichzelf en anderen te creëren.",
+    strengths: ["Vreedzaam", "Aanvaardend", "Geduldig", "Bemiddelend", "Kalm", "Medelevend"],
+    weaknesses: ["Passief", "Indecisief", "Ontwijkend van conflict", "Koppig", "Zelfvergeten", "Uitstelgedrag"]
   }
 ];
