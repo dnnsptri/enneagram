@@ -1,3 +1,4 @@
+
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import type { Result } from "@shared/schema";
 import type { EnneagramType } from "@shared/types";
@@ -65,11 +66,6 @@ export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) =
           ))}
         </View>
       </View>
-
-      <View style={styles.section}>
-        <Text style={styles.subtitle}>Vleugel: {wingType.name}</Text>
-        <Text style={styles.text}>Datum: {new Date(result.timestamp).toLocaleDateString('nl-NL')}</Text>
-      </View>iew>
 
       <View style={styles.section}>
         <Text style={styles.subtitle}>Je Vleugel: {wingType.name}</Text>
