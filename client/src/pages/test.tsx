@@ -62,7 +62,8 @@ export default function Test() {
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      form.reset();
+      // Reset form with undefined value to clear radio selection
+      form.reset({ answer: undefined });
     } else {
       mutation.mutate(calculateScores(newAnswers, questions));
     }
@@ -76,7 +77,7 @@ export default function Test() {
         <Card>
           <CardContent className="pt-6">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)}>
+              <form onSubmit={form.handleSubmit(onSubmit)} key={currentQuestion}>
                 <div className="mb-6">
                   <h2 className="text-xl font-semibold mb-4">
                     {questions[currentQuestion].text}
