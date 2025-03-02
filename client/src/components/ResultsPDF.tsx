@@ -138,4 +138,4 @@ const ResultsPDF: React.FC<ResultsPDFProps> = ({ data }) => {
   );
 };
 
-export default ResultsPDF;
+export { ResultsPDF };
