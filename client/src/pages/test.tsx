@@ -96,10 +96,8 @@ export default function Test() {
                             onKeyDown={(e) => {
                               if (e.key >= '1' && e.key <= '3') {
                                 field.onChange(parseInt(e.key));
-                                // Auto submit after a slight delay if an answer was selected via keyboard
-                                if (currentQuestion < questions.length - 1) {
-                                  setTimeout(() => form.handleSubmit(onSubmit)(), 300);
-                                }
+                              } else if (e.key === 'Enter' && field.value) {
+                                form.handleSubmit(onSubmit)();
                               }
                             }}
                           >
