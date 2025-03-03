@@ -62,8 +62,15 @@ export default function Test() {
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-      // Reset form with undefined value to clear radio selection
       form.reset({ answer: undefined });
+
+      // Keep focus on the form after submission
+      setTimeout(() => {
+        const radioGroup = document.querySelector('div[role="radiogroup"]');
+        if (radioGroup) {
+          (radioGroup as HTMLElement).focus();
+        }
+      }, 10);
     } else {
       mutation.mutate(calculateScores(newAnswers, questions));
     }
