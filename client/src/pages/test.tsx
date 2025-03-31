@@ -65,7 +65,10 @@ export default function Test() {
       // Reset form with undefined value to clear radio selection
       form.reset({ answer: undefined });
     } else {
-      mutation.mutate(calculateScores(newAnswers, questions));
+      // Ensure questions is defined before calling calculateScores
+      if (questions) {
+        mutation.mutate(calculateScores(newAnswers, questions));
+      }
     }
   };
 
