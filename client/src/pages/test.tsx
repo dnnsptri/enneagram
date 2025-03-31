@@ -151,10 +151,12 @@ function calculateScores(answers: number[], questions: Question[]): number[] {
 
   // Process each answer
   answers.forEach((answer, index) => {
-    if (answer && questions[index]) { // Check both answer and question exist
+    if (answer && questions && index < questions.length) { // Check both answer and question exist
       const type = questions[index].type;
-      typeScores[type - 1] += answer;
-      typeCounts[type - 1]++;
+      if (type >= 1 && type <= 9) { // Make sure type is valid (1-9)
+        typeScores[type - 1] += answer;
+        typeCounts[type - 1]++;
+      }
     }
   });
 
