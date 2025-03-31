@@ -98,7 +98,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="5" id="r5" />
-                                  <FormLabel htmlFor="r5">Ja (helemaal wel)</FormLabel>
+                                  <FormLabel htmlFor="r5">Ja</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -106,7 +106,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="1" id="r1" />
-                                  <FormLabel htmlFor="r1">Nee (helemaal niet)</FormLabel>
+                                  <FormLabel htmlFor="r1">Nee</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -114,7 +114,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="3" id="r3" />
-                                  <FormLabel htmlFor="r3">Deels (gemiddeld)</FormLabel>
+                                  <FormLabel htmlFor="r3">Deels</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
