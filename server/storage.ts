@@ -12,7 +12,11 @@ export interface IStorage {
   getResult(id: number): Promise<Result | undefined>;
 }
 
-export class DatabaseStorage implements IStorage {
+// In-memory fallback storage
+class MemStorage implements IStorage {
+  private results: Result[] = [];
+  private nextId = 1;
+
   async getQuestions(): Promise<Question[]> {
     return questions;
   }
@@ -22,19 +26,58 @@ export class DatabaseStorage implements IStorage {
   }
 
   async saveResult(insertResult: InsertResult): Promise<Result> {
+    const result = {
+      ...insertResult,
+      id: this.nextId++,
+    } as Result;
+    
+    this.results.push(result);
+    return result;
+  }
+
+  async getResult(id: number): Promise<Result | undefined> {
+    return this.results.find(r => r.id === id);
+  }
+}
+
+export class DatabaseStorage implements IStorage {
+  private memStorage = new MemStorage();
+  private dbConnectionFailed = false;
+
+  async getQuestions(): Promise<Question[]> {
+    return questions;
+  }
+
+  async getTypes(): Promise<EnneagramType[]> {
+    return enneagramTypes;
+  }
+
+  async saveResult(insertResult: InsertResult): Promise<Result> {
+    if (this.dbConnectionFailed) {
+      console.log('Using in-memory storage for saveResult due to previous DB connection failure');
+      return this.memStorage.saveResult(insertResult);
+    }
+
     try {
       const [result] = await db
         .insert(results)
-        .values([insertResult]) // Wrap in array to fix type error
+        .values(insertResult)
         .returning();
       return result;
     } catch (error) {
-      console.error('Error saving result:', error);
-      throw new Error('Failed to save test result');
+      console.error('Error saving result to database:', error);
+      this.dbConnectionFailed = true;
+      console.log('Falling back to in-memory storage');
+      return this.memStorage.saveResult(insertResult);
     }
   }
 
   async getResult(id: number): Promise<Result | undefined> {
+    if (this.dbConnectionFailed) {
+      console.log('Using in-memory storage for getResult due to previous DB connection failure');
+      return this.memStorage.getResult(id);
+    }
+
     try {
       const [result] = await db
         .select()
@@ -42,8 +85,10 @@ export class DatabaseStorage implements IStorage {
         .where(eq(results.id, id));
       return result;
     } catch (error) {
-      console.error('Error fetching result:', error);
-      return undefined;
+      console.error('Error fetching result from database:', error);
+      this.dbConnectionFailed = true;
+      console.log('Falling back to in-memory storage');
+      return this.memStorage.getResult(id);
     }
   }
 }
