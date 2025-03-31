@@ -65,10 +65,7 @@ export default function Test() {
       // Reset form with undefined value to clear radio selection
       form.reset({ answer: undefined });
     } else {
-      // Ensure questions is defined before calling calculateScores
-      if (questions) {
-        mutation.mutate(calculateScores(newAnswers, questions));
-      }
+      mutation.mutate(calculateScores(newAnswers, questions));
     }
   };
 
@@ -100,16 +97,16 @@ export default function Test() {
                             <FormItem>
                               <FormControl>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="5" id="r5" />
-                                  <FormLabel htmlFor="r5">Ja</FormLabel>
+                                  <RadioGroupItem value="1" id="r1" />
+                                  <FormLabel htmlFor="r1">Helemaal niet</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
                             <FormItem>
                               <FormControl>
                                 <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="1" id="r1" />
-                                  <FormLabel htmlFor="r1">Nee</FormLabel>
+                                  <RadioGroupItem value="2" id="r2" />
+                                  <FormLabel htmlFor="r2">Een beetje</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -117,7 +114,23 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="3" id="r3" />
-                                  <FormLabel htmlFor="r3">Deels</FormLabel>
+                                  <FormLabel htmlFor="r3">Gemiddeld</FormLabel>
+                                </div>
+                              </FormControl>
+                            </FormItem>
+                            <FormItem>
+                              <FormControl>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="4" id="r4" />
+                                  <FormLabel htmlFor="r4">Behoorlijk</FormLabel>
+                                </div>
+                              </FormControl>
+                            </FormItem>
+                            <FormItem>
+                              <FormControl>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="5" id="r5" />
+                                  <FormLabel htmlFor="r5">Helemaal wel</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -128,7 +141,7 @@ export default function Test() {
                   />
                 </div>
 
-                <Button
+                <Button 
                   type="submit"
                   className="w-full"
                   disabled={mutation.isPending}
@@ -151,17 +164,15 @@ function calculateScores(answers: number[], questions: Question[]): number[] {
 
   // Process each answer
   answers.forEach((answer, index) => {
-    if (answer && questions && index < questions.length) { // Check both answer and question exist
+    if (answer && questions[index]) { // Check both answer and question exist
       const type = questions[index].type;
-      if (type >= 1 && type <= 9) { // Make sure type is valid (1-9)
-        typeScores[type - 1] += answer;
-        typeCounts[type - 1]++;
-      }
+      typeScores[type - 1] += answer;
+      typeCounts[type - 1]++;
     }
   });
 
   // Calculate average scores, handling division by zero
-  return typeScores.map((score, index) =>
+  return typeScores.map((score, index) => 
     typeCounts[index] > 0 ? score / typeCounts[index] : 0
   );
 }
