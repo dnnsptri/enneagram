@@ -1,48 +1,34 @@
-import React from 'react';
 import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import type { Result } from "@shared/schema";
 import type { EnneagramType } from "@shared/types";
 
-// Define styles
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FFFFFF',
     padding: 30,
-  },
-  section: {
-    margin: 10,
-    padding: 10,
   },
   title: {
     fontSize: 24,
-    textAlign: 'center',
     marginBottom: 20,
   },
-  heading: {
+  subtitle: {
     fontSize: 18,
-    marginBottom: 10,
-  },
-  subheading: {
-    fontSize: 14,
-    marginBottom: 5,
+    marginBottom: 15,
   },
   text: {
     fontSize: 12,
+    marginBottom: 10,
+  },
+  section: {
+    marginBottom: 20,
+  },
+  list: {
+    marginLeft: 20,
+  },
+  listItem: {
+    fontSize: 12,
     marginBottom: 5,
-  },
-  tableRow: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#000',
-    borderBottomStyle: 'solid',
-    padding: 5,
-  },
-  tableCol: {
-    width: '50%',
-  },
-  tableCell: {
-    fontSize: 10,
   },
 });
 
@@ -52,39 +38,41 @@ interface ResultsPDFProps {
   wingType: EnneagramType;
 }
 
-// Create Document Component
-export const ResultsPDF: React.FC<ResultsPDFProps> = ({ result, primaryType, wingType }) => (
+export const ResultsPDF = ({ result, primaryType, wingType }: ResultsPDFProps) => (
   <Document>
     <Page size="A4" style={styles.page}>
+      <Text style={styles.title}>Enneagram Test Resultaat</Text>
+      
       <View style={styles.section}>
-        <Text style={styles.title}>Enneagram Test Resultaten</Text>
-
-        <Text style={styles.heading}>Primair Type: {primaryType.name}</Text>
+        <Text style={styles.subtitle}>{primaryType.name}</Text>
         <Text style={styles.text}>{primaryType.description}</Text>
+      </View>
 
-        <Text style={styles.heading}>Vleugel: {wingType.name}</Text>
+      <View style={styles.section}>
+        <Text style={styles.subtitle}>Sterke punten</Text>
+        <View style={styles.list}>
+          {primaryType.strengths.map((strength, i) => (
+            <Text key={i} style={styles.listItem}>• {strength}</Text>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.subtitle}>Uitdagingen</Text>
+        <View style={styles.list}>
+          {primaryType.weaknesses.map((weakness, i) => (
+            <Text key={i} style={styles.listItem}>• {weakness}</Text>
+          ))}
+        </View>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.subtitle}>Je Vleugel: {wingType.name}</Text>
         <Text style={styles.text}>{wingType.description}</Text>
+      </View>
 
-        <Text style={styles.heading}>Scores:</Text>
-        {result.scores.map((score, index) => (
-          <Text key={index} style={styles.text}>
-            Type {index + 1}: {score.toFixed(2)}
-          </Text>
-        ))}
-
-        <Text style={styles.heading}>Sterktes:</Text>
-        <View>
-          {primaryType.strengths.map((strength, index) => (
-            <Text key={index} style={styles.text}>• {strength}</Text>
-          ))}
-        </View>
-
-        <Text style={styles.heading}>Zwaktes:</Text>
-        <View>
-          {primaryType.weaknesses.map((weakness, index) => (
-            <Text key={index} style={styles.text}>• {weakness}</Text>
-          ))}
-        </View>
+      <View style={styles.section}>
+        <Text style={styles.text}>Datum: {new Date(result.timestamp).toLocaleDateString('nl-NL')}</Text>
       </View>
     </Page>
   </Document>

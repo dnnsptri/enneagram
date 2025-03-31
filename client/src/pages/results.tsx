@@ -79,27 +79,6 @@ export default function Results() {
               {primaryType.name}
             </h2>
             <p className="mb-6">{primaryType.description}</p>
-            
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">Sterke punten:</h3>
-              <ul className="list-disc pl-5 space-y-1">
-                {primaryType.strengths.map((strength, index) => (
-                  <li key={index}>{strength}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">Uitdagingen:</h3>
-              <ul className="list-disc pl-5 space-y-1">
-                {primaryType.weaknesses.map((weakness, index) => (
-                  <li key={index}>{weakness}</li>
-                ))}
-              </ul>
-            </div>
-            
-            <h3 className="text-xl font-semibold mb-2">Je Vleugel: {wingType.name}</h3>
-            <p className="mb-6">{wingType.description}</p>
 
             <Accordion type="multiple" className="w-full">
               <AccordionItem value="strengths">

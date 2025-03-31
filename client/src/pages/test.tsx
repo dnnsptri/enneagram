@@ -13,7 +13,7 @@ import { apiRequest } from "@/lib/queryClient";
 import type { Question } from "@shared/types";
 
 const answerSchema = z.object({
-  answer: z.number().min(1).max(3)
+  answer: z.number().min(1).max(5)
 });
 
 type FormData = z.infer<typeof answerSchema>;
@@ -62,15 +62,8 @@ export default function Test() {
 
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
+      // Reset form with undefined value to clear radio selection
       form.reset({ answer: undefined });
-
-      // Keep focus on the form after submission
-      setTimeout(() => {
-        const radioGroup = document.querySelector('div[role="radiogroup"]');
-        if (radioGroup) {
-          (radioGroup as HTMLElement).focus();
-        }
-      }, 10);
     } else {
       mutation.mutate(calculateScores(newAnswers, questions));
     }
@@ -100,19 +93,12 @@ export default function Test() {
                             onValueChange={(value) => field.onChange(parseInt(value))}
                             value={field.value?.toString()}
                             className="space-y-2"
-                            onKeyDown={(e) => {
-                              if (e.key >= '1' && e.key <= '3') {
-                                field.onChange(parseInt(e.key));
-                              } else if (e.key === 'Enter' && field.value) {
-                                form.handleSubmit(onSubmit)();
-                              }
-                            }}
                           >
                             <FormItem>
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="1" id="r1" />
-                                  <FormLabel htmlFor="r1"><strong>1.</strong> Nee</FormLabel>
+                                  <FormLabel htmlFor="r1">Helemaal niet</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -120,7 +106,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="2" id="r2" />
-                                  <FormLabel htmlFor="r2"><strong>2.</strong> Deels</FormLabel>
+                                  <FormLabel htmlFor="r2">Een beetje</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -128,7 +114,23 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="3" id="r3" />
-                                  <FormLabel htmlFor="r3"><strong>3.</strong> Ja</FormLabel>
+                                  <FormLabel htmlFor="r3">Gemiddeld</FormLabel>
+                                </div>
+                              </FormControl>
+                            </FormItem>
+                            <FormItem>
+                              <FormControl>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="4" id="r4" />
+                                  <FormLabel htmlFor="r4">Behoorlijk</FormLabel>
+                                </div>
+                              </FormControl>
+                            </FormItem>
+                            <FormItem>
+                              <FormControl>
+                                <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="5" id="r5" />
+                                  <FormLabel htmlFor="r5">Helemaal wel</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
