@@ -98,15 +98,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="1" id="r1" />
-                                  <FormLabel htmlFor="r1">Helemaal niet</FormLabel>
-                                </div>
-                              </FormControl>
-                            </FormItem>
-                            <FormItem>
-                              <FormControl>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="2" id="r2" />
-                                  <FormLabel htmlFor="r2">Een beetje</FormLabel>
+                                  <FormLabel htmlFor="r1">Nee</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -114,15 +106,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="3" id="r3" />
-                                  <FormLabel htmlFor="r3">Gemiddeld</FormLabel>
-                                </div>
-                              </FormControl>
-                            </FormItem>
-                            <FormItem>
-                              <FormControl>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="4" id="r4" />
-                                  <FormLabel htmlFor="r4">Behoorlijk</FormLabel>
+                                  <FormLabel htmlFor="r3">Deels</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
@@ -130,7 +114,7 @@ export default function Test() {
                               <FormControl>
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="5" id="r5" />
-                                  <FormLabel htmlFor="r5">Helemaal wel</FormLabel>
+                                  <FormLabel htmlFor="r5">Ja</FormLabel>
                                 </div>
                               </FormControl>
                             </FormItem>
