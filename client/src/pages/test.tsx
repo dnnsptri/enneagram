@@ -97,6 +97,14 @@ export default function Test() {
                             <FormItem>
                               <FormControl>
                                 <div className="flex items-center space-x-2">
+                                  <RadioGroupItem value="5" id="r5" />
+                                  <FormLabel htmlFor="r5">Ja</FormLabel>
+                                </div>
+                              </FormControl>
+                            </FormItem>
+                            <FormItem>
+                              <FormControl>
+                                <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="1" id="r1" />
                                   <FormLabel htmlFor="r1">Nee</FormLabel>
                                 </div>
@@ -110,14 +118,6 @@ export default function Test() {
                                 </div>
                               </FormControl>
                             </FormItem>
-                            <FormItem>
-                              <FormControl>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="5" id="r5" />
-                                  <FormLabel htmlFor="r5">Ja</FormLabel>
-                                </div>
-                              </FormControl>
-                            </FormItem>
                           </RadioGroup>
                         </FormControl>
                       </FormItem>
@@ -125,7 +125,7 @@ export default function Test() {
                   />
                 </div>
 
-                <Button 
+                <Button
                   type="submit"
                   className="w-full"
                   disabled={mutation.isPending}
@@ -156,7 +156,7 @@ function calculateScores(answers: number[], questions: Question[]): number[] {
   });
 
   // Calculate average scores, handling division by zero
-  return typeScores.map((score, index) => 
+  return typeScores.map((score, index) =>
     typeCounts[index] > 0 ? score / typeCounts[index] : 0
   );
 }
