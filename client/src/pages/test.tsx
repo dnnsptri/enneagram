@@ -37,10 +37,15 @@ export default function Test() {
 
   const mutation = useMutation({
     mutationFn: async (scores: number[]) => {
+      const primaryType = calculatePrimaryType(scores);
+      const wingType = calculateWingType(scores, primaryType);
+      const triType = calculateTriType(scores);
+      
       const response = await apiRequest("POST", "/api/results", {
         scores,
-        primaryType: calculatePrimaryType(scores),
-        wingType: calculateWingType(scores),
+        primaryType,
+        wingType,
+        triType,
         timestamp: new Date().toISOString()
       });
       return await response.json();
@@ -168,14 +173,57 @@ function calculatePrimaryType(scores: number[]): number {
   return scores.indexOf(maxScore) + 1;
 }
 
-function calculateWingType(scores: number[]): number {
-  const primaryIndex = scores.indexOf(Math.max(...scores));
-
-  // Handle edge cases
-  if (primaryIndex === -1) return 1;
-
+function calculateWingType(scores: number[], primaryType: number): number {
+  // Determine the primary type's index (zero-based)
+  const primaryIndex = primaryType - 1;
+  
+  // Define wing types (left and right neighbors)
   const leftWing = primaryIndex === 0 ? 8 : primaryIndex - 1;
   const rightWing = primaryIndex === 8 ? 0 : primaryIndex + 1;
 
+  // Return the wing with the higher score
   return scores[leftWing] >= scores[rightWing] ? leftWing + 1 : rightWing + 1;
+}
+
+// Calculate the Enneagram tritype based on score distribution
+function calculateTriType(scores: number[]): number[] {
+  // Define the centers (gut/instinct: 8,9,1; heart/feeling: 2,3,4; head/thinking: 5,6,7)
+  const gutTypes = [8, 9, 1];
+  const heartTypes = [2, 3, 4];
+  const headTypes = [5, 6, 7];
+  
+  // Create score objects with type info for each center
+  const gutScores = gutTypes.map(type => ({ score: scores[type-1], type }))
+                            .sort((a, b) => b.score - a.score);
+  const heartScores = heartTypes.map(type => ({ score: scores[type-1], type }))
+                               .sort((a, b) => b.score - a.score);
+  const headScores = headTypes.map(type => ({ score: scores[type-1], type }))
+                             .sort((a, b) => b.score - a.score);
+  
+  // Get top type from each center (the one with highest score)
+  const primaryGut = gutScores[0].type;
+  const primaryHeart = heartScores[0].type;
+  const primaryHead = headScores[0].type;
+  
+  // Determine which center has the top primary type
+  const primaryType = scores.indexOf(Math.max(...scores)) + 1;
+  
+  // Order tri-type with primary type first, then the other two centers in descending score order
+  let triType: number[] = [];
+  
+  if (gutTypes.includes(primaryType)) {
+    triType = [primaryType, 
+               scores[primaryHeart-1] >= scores[primaryHead-1] ? primaryHeart : primaryHead, 
+               scores[primaryHeart-1] >= scores[primaryHead-1] ? primaryHead : primaryHeart];
+  } else if (heartTypes.includes(primaryType)) {
+    triType = [primaryType, 
+               scores[primaryGut-1] >= scores[primaryHead-1] ? primaryGut : primaryHead, 
+               scores[primaryGut-1] >= scores[primaryHead-1] ? primaryHead : primaryGut];
+  } else {
+    triType = [primaryType, 
+               scores[primaryGut-1] >= scores[primaryHeart-1] ? primaryGut : primaryHeart, 
+               scores[primaryGut-1] >= scores[primaryHeart-1] ? primaryHeart : primaryGut];
+  }
+  
+  return triType;
 }

@@ -41,9 +41,6 @@ class MemStorage implements IStorage {
 }
 
 export class DatabaseStorage implements IStorage {
-  private memStorage = new MemStorage();
-  private dbConnectionFailed = false;
-
   async getQuestions(): Promise<Question[]> {
     return questions;
   }
@@ -53,11 +50,6 @@ export class DatabaseStorage implements IStorage {
   }
 
   async saveResult(insertResult: InsertResult): Promise<Result> {
-    if (this.dbConnectionFailed) {
-      console.log('Using in-memory storage for saveResult due to previous DB connection failure');
-      return this.memStorage.saveResult(insertResult);
-    }
-
     try {
       const [result] = await db
         .insert(results)
@@ -66,18 +58,13 @@ export class DatabaseStorage implements IStorage {
       return result;
     } catch (error) {
       console.error('Error saving result to database:', error);
-      this.dbConnectionFailed = true;
-      console.log('Falling back to in-memory storage');
-      return this.memStorage.saveResult(insertResult);
+      // Create a MemStorage instance for this specific operation
+      const memStorage = new MemStorage();
+      return memStorage.saveResult(insertResult);
     }
   }
 
   async getResult(id: number): Promise<Result | undefined> {
-    if (this.dbConnectionFailed) {
-      console.log('Using in-memory storage for getResult due to previous DB connection failure');
-      return this.memStorage.getResult(id);
-    }
-
     try {
       const [result] = await db
         .select()
@@ -86,9 +73,7 @@ export class DatabaseStorage implements IStorage {
       return result;
     } catch (error) {
       console.error('Error fetching result from database:', error);
-      this.dbConnectionFailed = true;
-      console.log('Falling back to in-memory storage');
-      return this.memStorage.getResult(id);
+      return undefined;
     }
   }
 }

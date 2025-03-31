@@ -38,6 +38,11 @@ export default function Results() {
 
   const primaryType = types.find((t) => t.id === result.primaryType);
   const wingType = types.find((t) => t.id === result.wingType);
+  
+  // Get tri-type information
+  const triTypes = result.triType.map(typeId => 
+    types.find(t => t.id === typeId)
+  ).filter((t): t is EnneagramType => t !== undefined);
 
   if (!primaryType || !wingType) {
     return <div>Error: Type not found</div>;
@@ -61,6 +66,7 @@ export default function Results() {
                     result={result}
                     primaryType={primaryType}
                     wingType={wingType}
+                    triTypes={triTypes}
                   />
                 }
                 fileName={`enneagram-resultaat-type-${primaryType.id}.pdf`}
@@ -76,7 +82,7 @@ export default function Results() {
           </CardHeader>
           <CardContent>
             <h2 className="text-2xl font-bold mb-4">
-              {primaryType.name}
+              Type {primaryType.id} - {primaryType.name}
             </h2>
             <p className="mb-6">{primaryType.description}</p>
 
@@ -104,10 +110,26 @@ export default function Results() {
               <AccordionItem value="wing">
                 <AccordionTrigger>Je Vleugel: Type {wingType.id}</AccordionTrigger>
                 <AccordionContent>
-                  <h3 className="font-bold mb-2">{wingType.name}</h3>
+                  <h3 className="font-bold mb-2">Type {wingType.id} - {wingType.name}</h3>
                   <p>{wingType.description}</p>
                 </AccordionContent>
               </AccordionItem>
+              {triTypes.length > 0 && (
+                <AccordionItem value="tritype">
+                  <AccordionTrigger>Je Tri-type</AccordionTrigger>
+                  <AccordionContent>
+                    <p className="mb-4">Je tri-type is {triTypes.map(t => t.id).join('-')}. Dit vertegenwoordigt je primaire reactiepatronen uit de drie centra: Buik/Instinct (8,9,1), Hart/Emotie (2,3,4), en Hoofd/Denken (5,6,7).</p>
+                    <div className="space-y-4">
+                      {triTypes.map((type) => (
+                        <div key={type.id}>
+                          <h4 className="font-semibold">Type {type.id} - {type.name}</h4>
+                          <p className="text-sm">{type.description.split('.')[0]}.</p>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              )}
             </Accordion>
           </CardContent>
         </Card>

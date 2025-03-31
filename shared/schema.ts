@@ -7,6 +7,7 @@ export const results = pgTable("results", {
   scores: json("scores").notNull().$type<number[]>(),
   primaryType: integer("primary_type").notNull(),
   wingType: integer("wing_type").notNull(),
+  triType: json("tri_type").notNull().$type<number[]>(),
   timestamp: text("timestamp").notNull(),
 });
 
