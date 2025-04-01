@@ -5,6 +5,20 @@ import { eq } from "drizzle-orm";
 import { questions, enneagramTypes } from "./data/questions";
 import { type Question, type EnneagramType } from "./data/types";
 
+// Function to shuffle the questions array
+function shuffleQuestions(questionsArray: Question[]): Question[] {
+  // Create a copy of the questions array to avoid modifying the original
+  const shuffled = [...questionsArray];
+  
+  // Fisher-Yates shuffle algorithm
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  
+  return shuffled;
+}
+
 export interface IStorage {
   getQuestions(): Promise<Question[]>;
   getTypes(): Promise<EnneagramType[]>;
@@ -18,7 +32,7 @@ class MemStorage implements IStorage {
   private nextId = 1;
 
   async getQuestions(): Promise<Question[]> {
-    return questions;
+    return shuffleQuestions(questions);
   }
 
   async getTypes(): Promise<EnneagramType[]> {
@@ -42,7 +56,7 @@ class MemStorage implements IStorage {
 
 export class DatabaseStorage implements IStorage {
   async getQuestions(): Promise<Question[]> {
-    return questions;
+    return shuffleQuestions(questions);
   }
 
   async getTypes(): Promise<EnneagramType[]> {
