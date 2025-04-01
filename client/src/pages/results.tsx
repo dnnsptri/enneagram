@@ -24,16 +24,48 @@ export default function Results() {
   const params = useParams();
   const id = params?.id;
 
-  const { data: result, isLoading: resultLoading } = useQuery<Result>({
+  const { data: result, isLoading: resultLoading, error: resultError } = useQuery<Result>({
     queryKey: [`/api/results/${id}`],
+    retry: 3,
   });
 
-  const { data: types, isLoading: typesLoading } = useQuery<EnneagramType[]>({
+  const { data: types, isLoading: typesLoading, error: typesError } = useQuery<EnneagramType[]>({
     queryKey: ["/api/types"],
+    retry: 3,
   });
 
-  if (resultLoading || typesLoading || !result || !types) {
-    return <div>Laden...</div>;
+  console.log("Result loading:", resultLoading, "Result data:", result, "Result error:", resultError);
+  console.log("Types loading:", typesLoading, "Types data:", types, "Types error:", typesError);
+
+  if (resultLoading || typesLoading) {
+    return <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="text-lg mb-2">Laden...</div>
+        <div className="text-sm text-muted-foreground">Een moment geduld alstublieft</div>
+      </div>
+    </div>;
+  }
+  
+  if (resultError || typesError) {
+    return <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="text-lg mb-2 text-destructive">Er is een fout opgetreden</div>
+        <div className="text-sm text-muted-foreground">
+          {resultError?.message || typesError?.message || "Probeer het later opnieuw"}
+        </div>
+        <Button className="mt-4" onClick={() => window.location.href = "/"}>Terug naar Home</Button>
+      </div>
+    </div>;
+  }
+  
+  if (!result || !types) {
+    return <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <div className="text-lg mb-2">Geen gegevens gevonden</div>
+        <div className="text-sm text-muted-foreground">De resultaten zijn niet beschikbaar</div>
+        <Button className="mt-4" onClick={() => window.location.href = "/"}>Terug naar Home</Button>
+      </div>
+    </div>;
   }
 
   const primaryType = types.find((t) => t.id === result.primaryType);
