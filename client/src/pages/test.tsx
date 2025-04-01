@@ -153,7 +153,7 @@ function calculateScores(answers: number[], questions: Question[]): number[] {
 
   // Process each answer
   answers.forEach((answer, index) => {
-    if (answer && questions[index]) { // Check both answer and question exist
+    if (answer !== undefined && questions[index]) { // Check both answer and question exist
       const type = questions[index].type;
       typeScores[type - 1] += answer;
       typeCounts[type - 1]++;
