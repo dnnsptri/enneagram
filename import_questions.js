@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 // Read the questions from the text file
-const questionsText = fs.readFileSync('questions_import.txt', 'utf8');
+const questionsText = fs.readFileSync('fixed_questions.txt', 'utf8');
 const lines = questionsText.split('\n').filter(line => line.trim() !== '');
 
 // Parse each line and convert to the Question format
