@@ -1,4 +1,4 @@
-|31|Ik heb een sterk gevoel voor goed en fout en handel daar consequent naar.|1 |3
+1|Ik heb een sterk gevoel voor goed en fout en handel daar consequent naar.|1
 2|Ik ben kritisch op mezelf en op anderen als iets niet volgens de regels of normen verloopt.|1 
 3|Ik streef naar perfectie en heb moeite met fouten accepteren.|1 
 4|Ik voel me verantwoordelijk voor het verbeteren van de wereld om me heen.|1 
@@ -14,6 +14,17 @@
 14|Ik vind het lastig om kritiek te ontvangen, omdat ik al erg streng ben voor mezelf.|1 
 15|Ik waardeer eerlijkheid en integriteit enorm en verwacht dat ook van anderen.|1 
 16|Ik heb de neiging om dingen beter te weten en wil anderen graag corrigeren als ze ongelijk hebben.|1
+17|Ik voel me verantwoordelijk om dingen goed te laten verlopen, zelfs als het niet mijn taak is.|1
+18|Ik heb moeite met het loslaten van controle, omdat ik bang ben dat anderen het niet goed genoeg
+doen.|1
+19|Ik kan streng en hard zijn voor mezelf als ik een fout maak.|1
+20|Ik ervaar vaak een innerlijke strijd tussen wat ik wil en wat juist is.|1
+21|Ik voel me ongemakkelijk bij emoties zoals boosheid, maar onderdruk ze vaak.|1
+22|Ik vind het moeilijk om complimenten te accepteren, omdat ik altijd denk dat het beter kan.|1
+23|Ik kan geïrriteerd raken door mensen die gemakzuchtig of onverantwoordelijk zijn.|1
+24|Ik zie snel wat verbeterd kan worden en wil daar iets aan doen.|1
+25|Ik wil graag erkenning voor mijn inspanningen, maar vind het moeilijk om dat te vragen.|1
+26|Ik ervaar vaak een gevoel van innerlijke spanning, omdat ik altijd streef naar het ‘juiste’.|1
 
 1|Ik voel me het gelukkigst wanneer ik anderen kan helpen.|2 
 2|Ik heb de neiging om andermans behoeften boven die van mezelf te stellen.|2 

@@ -87,9 +87,19 @@ export const questions: Question[] = [
     "type": 2
   },
   {
+    "id": 17,
+    "text": "Ik vind het belangrijk om te leven volgens duidelijke morele principes.",
+    "type": 1
+  },
+  {
     "id": 18,
     "text": "Ik heb de neiging om andermans behoeften boven die van mezelf te stellen.",
     "type": 2
+  },
+  {
+    "id": 18,
+    "text": "Ik voel me ongemakkelijk als regels worden genegeerd of omzeild.",
+    "type": 1
   },
   {
     "id": 19,
@@ -97,9 +107,19 @@ export const questions: Question[] = [
     "type": 2
   },
   {
+    "id": 19,
+    "text": "Ik kan me ergeren aan onzorgvuldigheid of slordigheid van anderen.",
+    "type": 1
+  },
+  {
     "id": 20,
     "text": "Ik heb moeite met het zeggen van 'nee' omdat ik anderen niet wil teleurstellen.",
     "type": 2
+  },
+  {
+    "id": 20,
+    "text": "Ik heb de neiging om situaties in te delen in 'goed' of 'fout'.",
+    "type": 1
   },
   {
     "id": 21,
@@ -107,9 +127,19 @@ export const questions: Question[] = [
     "type": 2
   },
   {
+    "id": 21,
+    "text": "Ik voel een constante drang om mezelf en alles om me heen te verbeteren.",
+    "type": 1
+  },
+  {
     "id": 22,
     "text": "Ik ben goed in het aanvoelen van andermans emoties en behoeften.",
     "type": 2
+  },
+  {
+    "id": 22,
+    "text": "Ik leg de lat hoog voor mezelf en anderen.",
+    "type": 1
   },
   {
     "id": 23,
@@ -117,9 +147,19 @@ export const questions: Question[] = [
     "type": 2
   },
   {
+    "id": 23,
+    "text": "Ik word regelmatig door anderen ervaren als principieel of streng.",
+    "type": 1
+  },
+  {
     "id": 24,
     "text": "Ik heb de neiging om cadeaus, aandacht of hulp aan te bieden zonder dat iemand daarom heeft gevraagd.",
     "type": 2
+  },
+  {
+    "id": 24,
+    "text": "Ik vind het moeilijk om compromissen te sluiten op gebieden die ik belangrijk vind.",
+    "type": 1
   },
   {
     "id": 25,
@@ -127,9 +167,19 @@ export const questions: Question[] = [
     "type": 2
   },
   {
+    "id": 25,
+    "text": "Ik heb een sterk rechtvaardigheidsgevoel en streef naar eerlijkheid.",
+    "type": 1
+  },
+  {
     "id": 26,
     "text": "Ik wil graag geliefd worden en doe veel moeite om dat te bereiken.",
     "type": 2
+  },
+  {
+    "id": 26,
+    "text": "Ik ben vaak bezig met het naleven van regels en procedures.",
+    "type": 1
   },
   {
     "id": 27,
@@ -719,7 +769,7 @@ export const questions: Question[] = [
   {
     "id": 144,
     "text": "Ik heb de neiging om in een comfortabele routine te blijven, zelfs als die niet ideaal is.",
-    "type": 9
+    "type": 917
   }
 ];
 

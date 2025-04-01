@@ -141,4 +141,15 @@
 141|Ik heb moeite met het uiten van mijn eigen verlangens en meningen.|9
 142|Ik ben goed in het zien van verschillende perspectieven, waardoor ik soms moeilijk keuzes kan maken.|9
 143|Ik vind het moeilijk om mijn eigen grenzen aan te geven en nee te zeggen.|9
-144|Ik heb de neiging om in een comfortabele routine te blijven, zelfs als die niet ideaal is.|9
+144|Ik heb de neiging om in een comfortabele routine te blijven, zelfs als die niet ideaal is.|917|Ik vind het belangrijk om te leven volgens duidelijke morele principes.|1
+
+17|Ik vind het belangrijk om te leven volgens duidelijke morele principes.|1
+18|Ik voel me ongemakkelijk als regels worden genegeerd of omzeild.|1
+19|Ik kan me ergeren aan onzorgvuldigheid of slordigheid van anderen.|1
+20|Ik heb de neiging om situaties in te delen in 'goed' of 'fout'.|1
+21|Ik voel een constante drang om mezelf en alles om me heen te verbeteren.|1
+22|Ik leg de lat hoog voor mezelf en anderen.|1
+23|Ik word regelmatig door anderen ervaren als principieel of streng.|1
+24|Ik vind het moeilijk om compromissen te sluiten op gebieden die ik belangrijk vind.|1
+25|Ik heb een sterk rechtvaardigheidsgevoel en streef naar eerlijkheid.|1
+26|Ik ben vaak bezig met het naleven van regels en procedures.|1
