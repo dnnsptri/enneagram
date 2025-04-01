@@ -18,7 +18,7 @@ export type Result = typeof results.$inferSelect;
 
 export const answerSchema = z.object({
   questionId: z.number(),
-  answer: z.number().min(1).max(5)
+  answer: z.number().min(0).max(2)
 });
 
 export type Answer = z.infer<typeof answerSchema>;
