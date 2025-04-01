@@ -1,0 +1,36 @@
+1|Ik ben georganiseerd en houd van structuur|1
+2|Ik streef naar perfectie in alles wat ik doe|1
+3|Ik heb een sterk ontwikkeld geweten|1
+4|Ik heb duidelijke principes waar ik naar leef|1
+5|Ik voel me verantwoordelijk voor het welzijn van anderen|2
+6|Ik help anderen graag met hun problemen|2
+7|Ik vind het moeilijk om 'nee' te zeggen als iemand om hulp vraagt|2
+8|Ik wil graag nodig zijn voor anderen|2
+9|Ik ben ambitieus en wil graag succesvol zijn|3
+10|Ik ben gefocust op het bereiken van mijn doelen|3
+11|Ik vind het belangrijk wat anderen van mij vinden|3
+12|Ik werk hard om de beste te zijn in wat ik doe|3
+13|Ik voel me vaak anders dan anderen|4
+14|Ik ben op zoek naar mijn unieke identiteit|4
+15|Ik ervaar emoties intenser dan de meeste mensen|4
+16|Ik verlang naar diepgang en authenticiteit in relaties|4
+17|Ik observeer liever dan dat ik direct deelneem|5
+18|Ik heb behoefte aan veel tijd alleen|5
+19|Ik analyseer situaties grondig voordat ik handel|5
+20|Ik verzamel graag kennis over onderwerpen die mij interesseren|5
+21|Ik denk vaak na over wat er mis zou kunnen gaan|6
+22|Ik ben voorzichtig en let op gevaren|6
+23|Ik heb moeite om belangrijke beslissingen te nemen|6
+24|Ik zoek bevestiging en steun bij anderen|6
+25|Ik houd van nieuwe ervaringen en avontuur|7
+26|Ik heb veel verschillende interesses en projecten|7
+27|Ik focus me liever op positieve mogelijkheden dan op problemen|7
+28|Ik vind het moeilijk om me te beperken tot één ding|7
+29|Ik neem graag de leiding in situaties|8
+30|Ik zeg direct waar het op staat|8
+31|Ik bescherm mensen die ik belangrijk vind|8
+32|Ik houd van uitdagingen en confrontaties|8
+33|Ik vermijd conflicten en onaangename situaties|9
+34|Ik vind het prettig als alles rustig en harmonieus is|9
+35|Ik pas me gemakkelijk aan anderen aan|9
+36|Ik heb moeite om prioriteiten te stellen en keuzes te maken|9

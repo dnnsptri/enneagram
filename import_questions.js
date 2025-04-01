@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 // Read the questions from the text file
 const questionsText = fs.readFileSync('questions_import.txt', 'utf8');
