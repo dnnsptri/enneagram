@@ -84,7 +84,7 @@ export default function Test() {
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} key={currentQuestion}>
                 <div className="mb-6">
-                  <h2 className="text-xl font-semibold mb-4 min-h-[100px] flex items-center">
+                  <h2 className="text-xl font-semibold mb-3 min-h-[100px] flex items-start">
                     {questions[currentQuestion].text}
                   </h2>
 
