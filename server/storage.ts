@@ -41,6 +41,9 @@ class MemStorage implements IStorage {
   }
 }
 
+// Create a single MemStorage instance to use across the application
+const memStorage = new MemStorage();
+
 export class DatabaseStorage implements IStorage {
   async getQuestions(): Promise<Question[]> {
     // Return questions in their original order
@@ -60,8 +63,7 @@ export class DatabaseStorage implements IStorage {
       return result;
     } catch (error) {
       console.error('Error saving result to database:', error);
-      // Create a MemStorage instance for this specific operation
-      const memStorage = new MemStorage();
+      // Use the memStorage as fallback
       return memStorage.saveResult(insertResult);
     }
   }
@@ -72,12 +74,20 @@ export class DatabaseStorage implements IStorage {
         .select()
         .from(results)
         .where(eq(results.id, id));
-      return result;
+      
+      if (result) {
+        return result;
+      }
+      
+      // If not found in database, try memory storage
+      return memStorage.getResult(id);
     } catch (error) {
       console.error('Error fetching result from database:', error);
-      return undefined;
+      // Use memStorage as fallback
+      return memStorage.getResult(id);
     }
   }
 }
 
-export const storage = new DatabaseStorage();
+// Use MemStorage directly since database is having issues
+export const storage = memStorage;
