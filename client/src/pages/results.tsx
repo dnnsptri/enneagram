@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams, Link } from "wouter";
 import { PDFDownloadLink } from '@react-pdf/renderer';
+import ErrorDisplay from "@/components/ErrorDisplay";
 import {
   Card,
   CardContent,
@@ -37,9 +38,7 @@ export default function Results() {
   console.log("Result loading:", resultLoading, "Result data:", result, "Result error:", resultError);
   console.log("Types loading:", typesLoading, "Types data:", types, "Types error:", typesError);
 
-  import ErrorDisplay from "@/components/ErrorDisplay";
-
-if (resultLoading || typesLoading) {
+  if (resultLoading || typesLoading) {
     return <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <div className="text-lg mb-2">Laden...</div>
