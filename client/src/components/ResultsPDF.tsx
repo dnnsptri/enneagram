@@ -35,11 +35,9 @@ const styles = StyleSheet.create({
 interface ResultsPDFProps {
   result: Result;
   primaryType: EnneagramType;
-  wingType: EnneagramType;
-  triTypes?: EnneagramType[];
 }
 
-export const ResultsPDF = ({ result, primaryType, wingType, triTypes }: ResultsPDFProps) => (
+export const ResultsPDF = ({ result, primaryType }: ResultsPDFProps) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <Text style={styles.title}>Enneagram Test Resultaat</Text>
@@ -66,25 +64,6 @@ export const ResultsPDF = ({ result, primaryType, wingType, triTypes }: ResultsP
           ))}
         </View>
       </View>
-
-      <View style={styles.section}>
-        <Text style={styles.subtitle}>Je Vleugel: Type {wingType.id} - {wingType.name}</Text>
-        <Text style={styles.text}>{wingType.description}</Text>
-      </View>
-
-      {triTypes && triTypes.length > 0 && (
-        <View style={styles.section}>
-          <Text style={styles.subtitle}>Je Tri-type: {triTypes.map(t => t.id).join('-')}</Text>
-          <Text style={styles.text}>Dit vertegenwoordigt je primaire reactiepatronen uit de drie centra: Buik/Instinct (8,9,1), Hart/Emotie (2,3,4), en Hoofd/Denken (5,6,7).</Text>
-          
-          {triTypes.map((type, i) => (
-            <View key={i} style={{marginTop: 10}}>
-              <Text style={{fontSize: 14, fontWeight: 'bold', marginBottom: 5}}>Type {type.id} - {type.name}</Text>
-              <Text style={styles.text}>{type.description.split('.')[0]}.</Text>
-            </View>
-          ))}
-        </View>
-      )}
 
       <View style={styles.section}>
         <Text style={styles.text}>Datum: {new Date(result.timestamp).toLocaleDateString('nl-NL')}</Text>

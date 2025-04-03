@@ -27,6 +27,15 @@ class MemStorage implements IStorage {
   }
 
   async saveResult(insertResult: InsertResult): Promise<Result> {
+    // Ensure scores is an array before storing
+    if (!Array.isArray(insertResult.scores)) {
+      console.error('MemStorage: Invalid scores format, attempting to convert to array');
+      insertResult = {
+        ...insertResult,
+        scores: Array.isArray(insertResult.scores) ? insertResult.scores : Object.values(insertResult.scores)
+      };
+    }
+    
     const result = {
       ...insertResult,
       id: this.nextId++,
@@ -56,6 +65,15 @@ export class DatabaseStorage implements IStorage {
 
   async saveResult(insertResult: InsertResult): Promise<Result> {
     try {
+      // Ensure scores is an array before inserting
+      if (!Array.isArray(insertResult.scores)) {
+        console.error('Invalid scores format, attempting to convert to array');
+        insertResult = {
+          ...insertResult,
+          scores: Array.isArray(insertResult.scores) ? insertResult.scores : Object.values(insertResult.scores)
+        };
+      }
+      
       const [result] = await db
         .insert(results)
         .values(insertResult)

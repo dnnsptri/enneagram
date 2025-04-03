@@ -35,9 +35,6 @@ export default function Results() {
     retry: 3,
   });
 
-  console.log("Result loading:", resultLoading, "Result data:", result, "Result error:", resultError);
-  console.log("Types loading:", typesLoading, "Types data:", types, "Types error:", typesError);
-
   if (resultLoading || typesLoading) {
     return <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
@@ -63,14 +60,8 @@ export default function Results() {
   }
 
   const primaryType = types.find((t) => t.id === result.primaryType);
-  const wingType = types.find((t) => t.id === result.wingType);
-  
-  // Get tri-type information
-  const triTypes = result.triType.map(typeId => 
-    types.find(t => t.id === typeId)
-  ).filter((t): t is EnneagramType => t !== undefined);
 
-  if (!primaryType || !wingType) {
+  if (!primaryType) {
     return <div>Error: Type not found</div>;
   }
 
@@ -83,7 +74,7 @@ export default function Results() {
               <div>
                 <CardTitle>Je Enneagram Resultaat</CardTitle>
                 <CardDescription>
-                  Type {primaryType.id} met een vleugel van Type {wingType.id}
+                  Type {primaryType.id} - {primaryType.name}
                 </CardDescription>
               </div>
               <PDFDownloadLink
@@ -91,8 +82,6 @@ export default function Results() {
                   <ResultsPDF
                     result={result}
                     primaryType={primaryType}
-                    wingType={wingType}
-                    triTypes={triTypes}
                   />
                 }
                 fileName={`enneagram-resultaat-type-${primaryType.id}.pdf`}
@@ -133,29 +122,6 @@ export default function Results() {
                   </ul>
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="wing">
-                <AccordionTrigger>Je Vleugel: Type {wingType.id}</AccordionTrigger>
-                <AccordionContent>
-                  <h3 className="font-bold mb-2">Type {wingType.id} - {wingType.name}</h3>
-                  <p>{wingType.description}</p>
-                </AccordionContent>
-              </AccordionItem>
-              {triTypes.length > 0 && (
-                <AccordionItem value="tritype">
-                  <AccordionTrigger>Je Tri-type</AccordionTrigger>
-                  <AccordionContent>
-                    <p className="mb-4">Je tri-type is {triTypes.map(t => t.id).join('-')}. Dit vertegenwoordigt je primaire reactiepatronen uit de drie centra: Buik/Instinct (8,9,1), Hart/Emotie (2,3,4), en Hoofd/Denken (5,6,7).</p>
-                    <div className="space-y-4">
-                      {triTypes.map((type) => (
-                        <div key={type.id}>
-                          <h4 className="font-semibold">Type {type.id} - {type.name}</h4>
-                          <p className="text-sm">{type.description.split('.')[0]}.</p>
-                        </div>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              )}
             </Accordion>
           </CardContent>
         </Card>
