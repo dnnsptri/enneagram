@@ -37,7 +37,9 @@ export default function Results() {
   console.log("Result loading:", resultLoading, "Result data:", result, "Result error:", resultError);
   console.log("Types loading:", typesLoading, "Types data:", types, "Types error:", typesError);
 
-  if (resultLoading || typesLoading) {
+  import ErrorDisplay from "@/components/ErrorDisplay";
+
+if (resultLoading || typesLoading) {
     return <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <div className="text-lg mb-2">Laden...</div>
@@ -47,25 +49,18 @@ export default function Results() {
   }
   
   if (resultError || typesError) {
-    return <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <div className="text-lg mb-2 text-destructive">Er is een fout opgetreden</div>
-        <div className="text-sm text-muted-foreground">
-          {resultError?.message || typesError?.message || "Probeer het later opnieuw"}
-        </div>
-        <Button className="mt-4" onClick={() => window.location.href = "/"}>Terug naar Home</Button>
-      </div>
-    </div>;
+    return <ErrorDisplay 
+      title="Er is een fout opgetreden"
+      message={resultError?.message || typesError?.message || "Probeer het later opnieuw"}
+    />;
   }
   
   if (!result || !types) {
-    return <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <div className="text-lg mb-2">Geen gegevens gevonden</div>
-        <div className="text-sm text-muted-foreground">De resultaten zijn niet beschikbaar</div>
-        <Button className="mt-4" onClick={() => window.location.href = "/"}>Terug naar Home</Button>
-      </div>
-    </div>;
+    return <ErrorDisplay 
+      title="Geen gegevens gevonden"
+      message="De resultaten zijn niet beschikbaar"
+      code="404: {\"message\":\"Result not found\"}"
+    />;
   }
 
   const primaryType = types.find((t) => t.id === result.primaryType);
