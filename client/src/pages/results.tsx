@@ -58,7 +58,7 @@ export default function Results() {
     return <ErrorDisplay 
       title="Geen gegevens gevonden"
       message="De resultaten zijn niet beschikbaar"
-      code="404: {\"message\":\"Result not found\"}"
+      code='404: {"message":"Result not found"}'
     />;
   }
 
