@@ -89,5 +89,5 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-// Use MemStorage directly since database is having issues
-export const storage = memStorage;
+// Use DatabaseStorage to persist data between server restarts
+export const storage = new DatabaseStorage();
