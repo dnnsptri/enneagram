@@ -127,12 +127,12 @@ export default function Results() {
         </Card>
 
         <div className="flex justify-between">
-          <Link href="/">
-            <Button variant="outline">Terug naar Home</Button>
-          </Link>
-          <Link href="/test">
-            <Button>Test Opnieuw Maken</Button>
-          </Link>
+          <Button variant="outline" onClick={() => window.location.href = "/"}>
+            Terug naar Home
+          </Button>
+          <Button onClick={() => window.location.href = "/test"}>
+            Test Opnieuw Maken
+          </Button>
         </div>
       </div>
     </div>
