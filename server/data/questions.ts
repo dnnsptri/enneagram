@@ -83,8 +83,8 @@ export const questions: Question[] = [
   },
   {
     "id": 2,
-    "text": "",
-    "type": null
+    "text": "Ik ben bereid om confrontaties aan te gaan en directe actie te ondernemen.",
+    "type": 8
   },
   {
     "id": 2,
@@ -733,8 +733,8 @@ export const questions: Question[] = [
   },
   {
     "id": 18,
-    "text": "Ik heb moeite met het loslaten van controle, omdat ik bang ben dat anderen het niet goed genoeg",
-    "type": null
+    "text": "Ik heb moeite met het loslaten van controle, omdat ik bang ben dat anderen het niet goed genoeg doen.",
+    "type": 1
   },
   {
     "id": null,
