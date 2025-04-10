@@ -12,47 +12,6 @@ export interface IStorage {
   getResult(id: number): Promise<Result | undefined>;
 }
 
-// In-memory fallback storage
-class MemStorage implements IStorage {
-  private results: Result[] = [];
-  private nextId = 1;
-
-  async getQuestions(): Promise<Question[]> {
-    // Return questions in their original order
-    return questions;
-  }
-
-  async getTypes(): Promise<EnneagramType[]> {
-    return enneagramTypes;
-  }
-
-  async saveResult(insertResult: InsertResult): Promise<Result> {
-    // Ensure scores is an array before storing
-    if (!Array.isArray(insertResult.scores)) {
-      console.error('MemStorage: Invalid scores format, attempting to convert to array');
-      insertResult = {
-        ...insertResult,
-        scores: Array.isArray(insertResult.scores) ? insertResult.scores : Object.values(insertResult.scores)
-      };
-    }
-    
-    const result = {
-      ...insertResult,
-      id: this.nextId++,
-    } as Result;
-    
-    this.results.push(result);
-    return result;
-  }
-
-  async getResult(id: number): Promise<Result | undefined> {
-    return this.results.find(r => r.id === id);
-  }
-}
-
-// Create a single MemStorage instance to use across the application
-const memStorage = new MemStorage();
-
 export class DatabaseStorage implements IStorage {
   async getQuestions(): Promise<Question[]> {
     // Return questions in their original order
@@ -64,16 +23,16 @@ export class DatabaseStorage implements IStorage {
   }
 
   async saveResult(insertResult: InsertResult): Promise<Result> {
+    // Ensure scores is an array before inserting
+    if (!Array.isArray(insertResult.scores)) {
+      console.error('Invalid scores format, attempting to convert to array');
+      insertResult = {
+        ...insertResult,
+        scores: Array.isArray(insertResult.scores) ? insertResult.scores : Object.values(insertResult.scores)
+      };
+    }
+    
     try {
-      // Ensure scores is an array before inserting
-      if (!Array.isArray(insertResult.scores)) {
-        console.error('Invalid scores format, attempting to convert to array');
-        insertResult = {
-          ...insertResult,
-          scores: Array.isArray(insertResult.scores) ? insertResult.scores : Object.values(insertResult.scores)
-        };
-      }
-      
       const [result] = await db
         .insert(results)
         .values(insertResult)
@@ -81,8 +40,7 @@ export class DatabaseStorage implements IStorage {
       return result;
     } catch (error) {
       console.error('Error saving result to database:', error);
-      // Use the memStorage as fallback
-      return memStorage.saveResult(insertResult);
+      throw error;
     }
   }
 
@@ -93,16 +51,10 @@ export class DatabaseStorage implements IStorage {
         .from(results)
         .where(eq(results.id, id));
       
-      if (result) {
-        return result;
-      }
-      
-      // If not found in database, try memory storage
-      return memStorage.getResult(id);
+      return result || undefined;
     } catch (error) {
       console.error('Error fetching result from database:', error);
-      // Use memStorage as fallback
-      return memStorage.getResult(id);
+      throw error;
     }
   }
 }

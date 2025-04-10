@@ -178,15 +178,15 @@ doen.|1
 15|Ik probeer negatieve emoties weg te duwen door afleiding te zoeken.|7 
 16|Ik kan moeite hebben met diepgang in relaties, omdat ik snel doorga naar het volgende.|7
 17|Ik houd van spontaniteit en kan soms impulsieve beslissingen nemen.|7 
-17|Ik ben altijd op zoek naar plezier en wil anderen daarbij betrekken.|7 
-18|Ik raak gestresst als ik het gevoel heb dat ik iets mis.|7 
-19|Ik ben bang om vast te zitten in een saai of beperkend leven.|7 
-20|Ik ben een sociaal en energiek persoon die graag onder de mensen is.|7 
-21|Ik kan soms oppervlakkig overkomen omdat ik liever niet te lang bij problemen stilsta.|7 
-22|Ik houd van speelse en luchtige relaties, maar wil ook echte verbinding.|7 
-23|Ik kan soms mensen teleurstellen doordat ik te veel beloof en niet alles kan waarmaken.|7 
-24|Ik waardeer vrijheid in mijn relaties en wil niet verstikt worden.|7 
-25|Ik geniet ervan als anderen met mijn energie en enthousiasme meegaan.|7
+18|Ik ben altijd op zoek naar plezier en wil anderen daarbij betrekken.|7 
+19|Ik raak gestresst als ik het gevoel heb dat ik iets mis.|7 
+20|Ik ben bang om vast te zitten in een saai of beperkend leven.|7 
+21|Ik ben een sociaal en energiek persoon die graag onder de mensen is.|7 
+22|Ik kan soms oppervlakkig overkomen omdat ik liever niet te lang bij problemen stilsta.|7 
+23|Ik houd van speelse en luchtige relaties, maar wil ook echte verbinding.|7 
+24|Ik kan soms mensen teleurstellen doordat ik te veel beloof en niet alles kan waarmaken.|7 
+25|Ik waardeer vrijheid in mijn relaties en wil niet verstikt worden.|7 
+26|Ik geniet ervan als anderen met mijn energie en enthousiasme meegaan.|7
 
 1|Ik ben graag in controle over mijn eigen leven en beslissingen.|8 
 2||Ik vertrouw op mijn eigen kracht en kom op voor mezelf.|8 
