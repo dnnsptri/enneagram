@@ -737,11 +737,6 @@ export const questions: Question[] = [
     "type": 1
   },
   {
-    "id": null,
-    "text": "1",
-    "type": null
-  },
-  {
     "id": 10,
     "text": "Ik wil graag geliefd worden en doe veel moeite om dat te bereiken.",
     "type": 2
